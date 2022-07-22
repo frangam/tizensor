@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="es.ugr.frailty.heartrate" version="1.0.0">
+    <profile name="wearable"/>
+    <service-application appid="es.ugr.frailty.heartrate" exec="heartrate" multiple="false" nodisplay="true" taskmanage="false" type="capp">
+        <label>heartrate</label>
+        <icon>heartrate.png</icon>
+    </service-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/healthinfo</privilege>
+    </privileges>
+</manifest>

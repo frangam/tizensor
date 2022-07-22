@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+environment/buildEnvironmentInclude/org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557/CPATH/delimiter=\:
+environment/buildEnvironmentInclude/org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557/CPATH/operation=remove
+environment/buildEnvironmentInclude/org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557/CPLUS_INCLUDE_PATH/delimiter=\:
+environment/buildEnvironmentInclude/org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557/CPLUS_INCLUDE_PATH/operation=remove
+environment/buildEnvironmentInclude/org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557/C_INCLUDE_PATH/delimiter=\:
+environment/buildEnvironmentInclude/org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557/C_INCLUDE_PATH/operation=remove
+environment/buildEnvironmentInclude/org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557/append=true
+environment/buildEnvironmentInclude/org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557/appendContributed=true

@@ -1,0 +1,17 @@
+# ninja log v5
+0	176	0	src/gravity.o	53ec4af44e533d2d
+1	134	0	gravity	24e26561c5c4a17a
+0	4	0	clean_cov	b3de405e02eb7ca8
+5	9	0	clean_sa	46ab9549445ac981
+9	14	0	clean	d59b6dac04fa9b5d
+1	168	0	src/gravity.o	53ec4af44e533d2d
+168	307	0	gravity	24e26561c5c4a17a
+0	132	0	gravity	24e26561c5c4a17a
+1	168	0	src/gravity.o	53ec4af44e533d2d
+168	303	0	gravity	24e26561c5c4a17a
+0	5	0	clean_cov	b3de405e02eb7ca8
+7	12	0	clean_sa	46ab9549445ac981
+12	21	0	clean	d59b6dac04fa9b5d
+0	7	0	clean_cov	b3de405e02eb7ca8
+7	13	0	clean_sa	46ab9549445ac981
+13	22	0	clean	d59b6dac04fa9b5d

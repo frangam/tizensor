@@ -1,0 +1,12 @@
+# ninja log v5
+1	197	0	src/pedometer.o	34c877d560d7c4fc
+197	341	0	pedometer	9f3b009625ab1540
+0	5	0	clean_cov	b3de405e02eb7ca8
+5	9	0	clean_sa	46ab9549445ac981
+9	14	0	clean	d59b6dac04fa9b5d
+1	5	0	clean_cov	b3de405e02eb7ca8
+7	12	0	clean_sa	46ab9549445ac981
+12	19	0	clean	d59b6dac04fa9b5d
+0	8	0	clean_cov	b3de405e02eb7ca8
+8	13	0	clean_sa	46ab9549445ac981
+13	22	0	clean	d59b6dac04fa9b5d

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="es.ugr.frailty.frailtylauncher" version="1.0.0">
+    <profile name="wearable"/>
+    <ui-application appid="es.ugr.frailty.frailtylauncher" exec="frailtylauncher" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+        <label>frailtylauncher</label>
+        <icon>frailtylauncher.png</icon>
+        <metadata key="best_pedometer_history_count" value="0"/>
+        <metadata key="pedometer_goal_achieve_percents" value="0"/>
+        <metadata key="pedometer_inactive_period" value="0"/>
+        <background-category value="sensor"/>
+        <background-category value="location"/>
+    </ui-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/mediastorage</privilege>
+        <privilege>http://tizen.org/privilege/appdir.shareddata</privilege>
+        <privilege>http://tizen.org/privilege/network.get</privilege>
+        <privilege>http://tizen.org/privilege/healthinfo</privilege>
+        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+        <privilege>http://tizen.org/privilege/location</privilege>
+        <privilege>http://tizen.org/privilege/network.set</privilege>
+        <privilege>http://tizen.org/privilege/bluetooth</privilege>
+        <privilege>http://tizen.org/privilege/internet</privilege>
+        <privilege>http://tizen.org/privilege/display</privilege>
+        <privilege>http://tizen.org/privilege/network.profile</privilege>
+    </privileges>
+    <feature name="http://tizen.org/feature/sensor.accelerometer">true</feature>
+    <feature name="http://tizen.org/feature/network.internet">true</feature>
+    <feature name="http://tizen.org/feature/location.gps">true</feature>
+    <feature name="http://tizen.org/feature/sensor.gravity">true</feature>
+    <feature name="http://tizen.org/feature/sensor.linear_acceleration">true</feature>
+    <feature name="http://tizen.org/feature/sensor.barometer">true</feature>
+    <feature name="http://tizen.org/feature/sensor.pedometer">true</feature>
+    <feature name="http://tizen.org/feature/sensor.heart_rate_monitor">true</feature>
+    <feature name="http://tizen.org/feature/sensor.heart_rate_monitor.led_green">true</feature>
+    <feature name="http://tizen.org/feature/sensor.gyroscope">true</feature>
+    <feature name="http://tizen.org/feature/location">true</feature>
+</manifest>

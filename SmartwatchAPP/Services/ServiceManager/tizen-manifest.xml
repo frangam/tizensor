@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="es.ugr.frailty.servicemanager" version="1.0.0">
+    <profile name="wearable"/>
+    <service-application appid="es.ugr.frailty.servicemanager" exec="servicemanager" multiple="false" nodisplay="true" taskmanage="false" type="capp">
+        <label>servicemanager</label>
+        <icon>servicemanager.png</icon>
+    </service-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+    </privileges>
+</manifest>

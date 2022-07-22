@@ -1,0 +1,9 @@
+# ninja log v5
+1	171	0	src/linearacceleration.o	38df70043fd47a18
+171	323	0	linearacceleration	a1080a9b41b7d6b
+0	5	0	clean_cov	b3de405e02eb7ca8
+6	12	0	clean_sa	46ab9549445ac981
+12	20	0	clean	d59b6dac04fa9b5d
+0	5	0	clean_cov	b3de405e02eb7ca8
+5	10	0	clean_sa	46ab9549445ac981
+10	18	0	clean	d59b6dac04fa9b5d

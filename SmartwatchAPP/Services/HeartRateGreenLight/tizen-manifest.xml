@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="es.ugr.frailty.hrgreenlight" version="1.0.0">
+    <profile name="wearable" />
+    <service-application appid="es.ugr.frailty.hrgreenlight" exec="heartrategreenlight" type="capp" multiple="false" taskmanage="false" nodisplay="true">
+        <icon>heartrategreenlight.png</icon>
+        <label>heartrategreenlight</label>
+	</service-application>
+</manifest>

@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.tizen.nativecore.NativeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="a" artifactName="utils" buildArtefactType="org.tizen.nativecore.buildArtefactType.staticLib" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecore.buildArtefactType.staticLib,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -f" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557" name="Debug" parent="org.tizen.nativecore.config.sbi.gcc45.lib.debug">
+					<folderInfo id="org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557." name="/" resourcePath="">
+						<toolChain id="org.tizen.nativecore.toolchain.sbi.gcc45.lib.debug.857577157" name="Tizen Native Toolchain" superClass="org.tizen.nativecore.toolchain.sbi.gcc45.lib.debug">
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="org.tizen.nativeide.target.sbi.gnu.platform.base.604670762" osList="linux,win32" superClass="org.tizen.nativeide.target.sbi.gnu.platform.base"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/Utils}/Debug" enableAutoBuild="true" id="org.tizen.nativecore.target.sbi.gnu.builder.779262677" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Tizen Application Builder" superClass="org.tizen.nativecore.target.sbi.gnu.builder"/>
+							<tool command="arm-linux-gnueabi-ar" id="org.tizen.nativecore.tool.sbi.gnu.archiver.1052994385" name="Archiver" superClass="org.tizen.nativecore.tool.sbi.gnu.archiver"/>
+							<tool command="clang++" id="org.tizen.nativecore.tool.sbi.gnu.cpp.compiler.252499678" name="C++ Compiler" superClass="org.tizen.nativecore.tool.sbi.gnu.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.1320107121" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option defaultValue="gnu.cpp.compiler.debugging.level.max" id="sbi.gnu.cpp.compiler.option.debugging.level.core.1797499627" name="Debug level" superClass="sbi.gnu.cpp.compiler.option.debugging.level.core" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option defaultValue="false" id="sbi.gnu.cpp.compiler.option.misc.pic.core.78192461" name="-fPIC option" superClass="sbi.gnu.cpp.compiler.option.misc.pic.core" useByScannerDiscovery="false" valueType="boolean"/>
+								<option id="sbi.gnu.cpp.compiler.option.404425097" name="Tizen-Target" superClass="sbi.gnu.cpp.compiler.option" useByScannerDiscovery="false" valueType="userObjs">
+									<listOptionValue builtIn="false" value="wearable-4.0-device.core_llvm40.armel"/>
+								</option>
+								<option id="sbi.gnu.cpp.compiler.option.frameworks_inc.core.535512103" name="Tizen-Frameworks-Include-Path" superClass="sbi.gnu.cpp.compiler.option.frameworks_inc.core" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/libxml2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-agent&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-watch&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appfw&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/asp/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/badge&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/base&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/cairo&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/calendar-service2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/chromium-ewk&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ckm&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/contacts-svc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service/wearable/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/csr&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali-toolkit&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dbus-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/device&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dlog&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-buffer-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-con-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-file-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-ipc-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ector-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/e_dbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/edje-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-extension&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efreet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1/eina&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eio-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eldbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/elementary-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/embryo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/emile-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eom&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-client-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/feedback&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/fontconfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/freetype2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/gio-unix-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/glib-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/harfbuzz&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/iotcon&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/json-glib-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/location&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/maps&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media-content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/messaging&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/metadata-editor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/minizip&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/network&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/notification&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/nsd/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/phonenumber-utils&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/privacy-privilege-manager/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/SDL2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/sensor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/storage&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/system&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tef&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/telephony&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tzsh&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ui&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/vulkan&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_evas&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/yaca&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/dbus-1.0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/glib-2.0/include&quot;"/>
+								</option>
+								<option id="sbi.gnu.cpp.compiler.option.frameworks_cflags.core.824136933" name="Tizen-Frameworks-Other-Cflags" superClass="sbi.gnu.cpp.compiler.option.frameworks_cflags.core" useByScannerDiscovery="false" valueType="stringList">
+									<listOptionValue builtIn="false" value="${TC_COMPILER_MISC}"/>
+									<listOptionValue builtIn="false" value="${RS_COMPILER_MISC}"/>
+									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="-mthumb"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.include.paths.858532416" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/libxml2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-agent&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-watch&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appfw&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/asp/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/badge&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/base&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/cairo&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/calendar-service2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/chromium-ewk&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ckm&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/contacts-svc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service/wearable/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/csr&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali-toolkit&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dbus-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/device&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dlog&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-buffer-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-con-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-file-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-ipc-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ector-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/e_dbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/edje-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-extension&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efreet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1/eina&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eio-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eldbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/elementary-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/embryo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/emile-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eom&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-client-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/feedback&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/fontconfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/freetype2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/gio-unix-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/glib-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/harfbuzz&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/iotcon&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/json-glib-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/location&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/maps&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media-content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/messaging&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/metadata-editor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/minizip&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/network&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/notification&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/nsd/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/phonenumber-utils&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/privacy-privilege-manager/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/SDL2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/sensor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/storage&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/system&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tef&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/telephony&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tzsh&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ui&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/vulkan&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_evas&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/yaca&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/dbus-1.0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/glib-2.0/include&quot;"/>
+								</option>
+								<option id="sbi.gnu.cpp.compiler.option.frameworks.core.149990825" name="Tizen-Frameworks" superClass="sbi.gnu.cpp.compiler.option.frameworks.core" useByScannerDiscovery="false" valueType="userObjs">
+									<listOptionValue builtIn="false" value="Native_API"/>
+								</option>
+								<option id="sbi.gnu.cpp.compiler.option.preprocessor.def.deprecation.1434600926" name="Defined symbols (-D)" superClass="sbi.gnu.cpp.compiler.option.preprocessor.def.deprecation" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="TIZEN_DEPRECATION"/>
+									<listOptionValue builtIn="false" value="DEPRECATION_WARNING"/>
+									<listOptionValue builtIn="false" value="_DEBUG"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.dialect.std.1110404149" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.462510200" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool command="clang" id="org.tizen.nativecore.tool.sbi.gnu.c.compiler.1861903454" name="C Compiler" superClass="org.tizen.nativecore.tool.sbi.gnu.c.compiler">
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.995141879" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option defaultValue="gnu.c.debugging.level.max" id="sbi.gnu.c.compiler.option.debugging.level.core.1655817850" name="Debug level" superClass="sbi.gnu.c.compiler.option.debugging.level.core" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option defaultValue="false" id="sbi.gnu.c.compiler.option.misc.pic.core.385403831" name="-fPIC option" superClass="sbi.gnu.c.compiler.option.misc.pic.core" useByScannerDiscovery="false" valueType="boolean"/>
+								<option id="sbi.gnu.c.compiler.option.965361248" name="Tizen-Target" superClass="sbi.gnu.c.compiler.option" useByScannerDiscovery="false" valueType="userObjs">
+									<listOptionValue builtIn="false" value="wearable-4.0-device.core_llvm40.armel"/>
+								</option>
+								<option id="sbi.gnu.c.compiler.option.frameworks_inc.core.434472237" name="Tizen-Frameworks-Include-Path" superClass="sbi.gnu.c.compiler.option.frameworks_inc.core" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/libxml2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-agent&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-watch&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appfw&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/asp/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/badge&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/base&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/cairo&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/calendar-service2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/chromium-ewk&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ckm&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/contacts-svc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service/wearable/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/csr&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali-toolkit&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dbus-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/device&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dlog&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-buffer-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-con-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-file-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-ipc-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ector-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/e_dbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/edje-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-extension&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efreet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1/eina&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eio-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eldbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/elementary-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/embryo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/emile-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eom&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-client-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/feedback&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/fontconfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/freetype2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/gio-unix-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/glib-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/harfbuzz&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/iotcon&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/json-glib-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/location&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/maps&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media-content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/messaging&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/metadata-editor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/minizip&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/network&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/notification&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/nsd/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/phonenumber-utils&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/privacy-privilege-manager/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/SDL2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/sensor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/storage&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/system&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tef&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/telephony&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tzsh&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ui&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/vulkan&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_evas&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/yaca&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/dbus-1.0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/glib-2.0/include&quot;"/>
+								</option>
+								<option id="sbi.gnu.c.compiler.option.frameworks_cflags.core.1009698134" name="Tizen-Frameworks-Other-Cflags" superClass="sbi.gnu.c.compiler.option.frameworks_cflags.core" useByScannerDiscovery="false" valueType="stringList">
+									<listOptionValue builtIn="false" value="${TC_COMPILER_MISC}"/>
+									<listOptionValue builtIn="false" value="${RS_COMPILER_MISC}"/>
+									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="-mthumb"/>
+								</option>
+								<option id="gnu.c.compiler.option.include.paths.2123589734" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/libxml2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-agent&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-watch&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appfw&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/asp/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/badge&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/base&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/cairo&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/calendar-service2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/chromium-ewk&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ckm&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/contacts-svc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service/wearable/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/csr&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali-toolkit&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dbus-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/device&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dlog&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-buffer-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-con-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-file-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-ipc-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ector-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/e_dbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/edje-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-extension&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efreet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1/eina&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eio-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eldbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/elementary-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/embryo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/emile-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eom&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-client-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/feedback&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/fontconfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/freetype2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/gio-unix-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/glib-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/harfbuzz&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/iotcon&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/json-glib-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/location&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/maps&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media-content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/messaging&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/metadata-editor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/minizip&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/network&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/notification&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/nsd/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/phonenumber-utils&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/privacy-privilege-manager/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/SDL2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/sensor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/storage&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/system&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tef&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/telephony&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tzsh&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ui&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/vulkan&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_evas&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/yaca&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/dbus-1.0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/glib-2.0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Utils/lib}&quot;"/>
+								</option>
+								<option id="sbi.gnu.c.compiler.option.frameworks.core.924605870" name="Tizen-Frameworks" superClass="sbi.gnu.c.compiler.option.frameworks.core" useByScannerDiscovery="false" valueType="userObjs">
+									<listOptionValue builtIn="false" value="Native_API"/>
+								</option>
+								<option id="sbi.gnu.c.compiler.option.preprocessor.def.symbols.deprecation.944239163" name="Defined symbols (-D)" superClass="sbi.gnu.c.compiler.option.preprocessor.def.symbols.deprecation" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="TIZEN_DEPRECATION"/>
+									<listOptionValue builtIn="false" value="DEPRECATION_WARNING"/>
+									<listOptionValue builtIn="false" value="_DEBUG"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1818652653" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="org.tizen.nativeide.tool.sbi.gnu.c.linker.base.1218975001" name="C Linker" superClass="org.tizen.nativeide.tool.sbi.gnu.c.linker.base"/>
+							<tool command="clang++" id="org.tizen.nativecore.tool.sbi.gnu.cpp.linker.1023463558" name="C++ Linker" superClass="org.tizen.nativecore.tool.sbi.gnu.cpp.linker">
+								<option defaultValue="false" id="sbi.gnu.cpp.link.option.strip.616335074" name="Omit all symbol information (-s)" superClass="sbi.gnu.cpp.link.option.strip" valueType="boolean"/>
+								<option defaultValue="false" id="sbi.gnu.cpp.linker.option.shared_flag.core.2126287554" name="Linker.Shared" superClass="sbi.gnu.cpp.linker.option.shared_flag.core" valueType="boolean"/>
+								<option defaultValue="false" id="sbi.gnu.cpp.linker.option.noundefined.core.1270963255" name="Report unresolved symbol references (-Wl,--no-undefined)" superClass="sbi.gnu.cpp.linker.option.noundefined.core" valueType="boolean"/>
+								<option id="sbi.gnu.cpp.linker.option.frameworks_lflags.core.908147611" name="Tizen-Frameworks-Other-Lflags" superClass="sbi.gnu.cpp.linker.option.frameworks_lflags.core" valueType="stringList">
+									<listOptionValue builtIn="false" value="${TC_LINKER_MISC}"/>
+									<listOptionValue builtIn="false" value="${RS_LINKER_MISC}"/>
+									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="-L&quot;${SBI_SYSROOT}/usr/lib&quot;"/>
+									<listOptionValue builtIn="false" value="$(RS_LIBRARIES)"/>
+								</option>
+								<option id="gnu.cpp.link.option.paths.1806519778" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/lib}&quot;"/>
+								</option>
+							</tool>
+							<tool command="#{PLATFORM_DEFAULT_GCC_PREFIX}as" id="org.tizen.nativeapp.tool.sbi.gnu.assembler.base.1363403050" name="Assembler" superClass="org.tizen.nativeapp.tool.sbi.gnu.assembler.base">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.406711224" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="org.tizen.nativecore.tool.fnmapgen.454616885" name="C FN-Map Generator" superClass="org.tizen.nativecore.tool.fnmapgen"/>
+							<tool id="org.tizen.nativecore.tool.fnmapgen.cpp.209953077" name="C++ FN-Map Generator" superClass="org.tizen.nativecore.tool.fnmapgen.cpp"/>
+							<tool id="org.tizen.nativecore.tool.ast.821336334" name="C Static Analyzer" superClass="org.tizen.nativecore.tool.ast"/>
+							<tool id="org.tizen.nativecore.tool.ast.cpp.203898193" name="C++ Static Analyzer" superClass="org.tizen.nativecore.tool.ast.cpp"/>
+							<tool id="org.tizen.nativecore.tool.sbi.gnu.archiver.mergelib.1374792191" name="Archive Generator" superClass="org.tizen.nativecore.tool.sbi.gnu.archiver.mergelib"/>
+							<tool id="org.tizen.nativecore.tool.sbi.po.compiler.1153809941" name="PO Resource Compiler" superClass="org.tizen.nativecore.tool.sbi.po.compiler"/>
+							<tool id="org.tizen.nativecore.tool.sbi.edc.compiler.54282249" name="EDC Resource Compiler" superClass="org.tizen.nativecore.tool.sbi.edc.compiler"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="res"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="shared"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="org.tizen.nativecore.config.sbi.gcc45.lib.release.1180189586">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="org.tizen.nativecore.config.sbi.gcc45.lib.release.1180189586" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.tizen.nativecore.NativeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="a" artifactName="utils" buildArtefactType="org.tizen.nativecore.buildArtefactType.staticLib" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecore.buildArtefactType.staticLib,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -f" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="org.tizen.nativecore.config.sbi.gcc45.lib.release.1180189586" name="Release" parent="org.tizen.nativecore.config.sbi.gcc45.lib.release">
+					<folderInfo id="org.tizen.nativecore.config.sbi.gcc45.lib.release.1180189586." name="/" resourcePath="">
+						<toolChain id="org.tizen.nativecore.toolchain.sbi.gcc45.lib.release.19414281" name="Tizen Native Toolchain" superClass="org.tizen.nativecore.toolchain.sbi.gcc45.lib.release">
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="org.tizen.nativeide.target.sbi.gnu.platform.base.367467960" osList="linux,win32" superClass="org.tizen.nativeide.target.sbi.gnu.platform.base"/>
+							<builder buildPath="${workspace_loc:/Utils}/Release" id="org.tizen.nativecore.target.sbi.gnu.builder.550645721" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Tizen Application Builder" superClass="org.tizen.nativecore.target.sbi.gnu.builder"/>
+							<tool command="arm-linux-gnueabi-ar" id="org.tizen.nativecore.tool.sbi.gnu.archiver.1513469486" name="Archiver" superClass="org.tizen.nativecore.tool.sbi.gnu.archiver"/>
+							<tool command="clang++" id="org.tizen.nativecore.tool.sbi.gnu.cpp.compiler.256141541" name="C++ Compiler" superClass="org.tizen.nativecore.tool.sbi.gnu.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.923158721" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option defaultValue="gnu.cpp.compiler.debugging.level.none" id="sbi.gnu.cpp.compiler.option.debugging.level.core.935550554" name="Debug level" superClass="sbi.gnu.cpp.compiler.option.debugging.level.core" valueType="enumerated"/>
+								<option defaultValue="false" id="sbi.gnu.cpp.compiler.option.misc.pic.core.2005131598" name="-fPIC option" superClass="sbi.gnu.cpp.compiler.option.misc.pic.core" valueType="boolean"/>
+								<option id="sbi.gnu.cpp.compiler.option.1239298872" name="Tizen-Target" superClass="sbi.gnu.cpp.compiler.option" valueType="userObjs">
+									<listOptionValue builtIn="false" value="wearable-4.0-device.core_llvm40.armel"/>
+								</option>
+								<option id="sbi.gnu.cpp.compiler.option.frameworks_inc.core.2034800507" name="Tizen-Frameworks-Include-Path" superClass="sbi.gnu.cpp.compiler.option.frameworks_inc.core" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/libxml2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-agent&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-watch&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appfw&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/asp/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/badge&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/base&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/cairo&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/calendar-service2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/chromium-ewk&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ckm&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/contacts-svc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service/wearable/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/csr&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali-toolkit&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dbus-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/device&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dlog&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-buffer-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-con-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-file-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-ipc-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ector-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/e_dbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/edje-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-extension&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efreet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1/eina&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eio-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eldbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/elementary-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/embryo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/emile-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eom&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-client-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/feedback&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/fontconfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/freetype2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/gio-unix-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/glib-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/harfbuzz&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/iotcon&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/json-glib-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/location&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/maps&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media-content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/messaging&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/metadata-editor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/minizip&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/network&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/notification&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/nsd/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/phonenumber-utils&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/privacy-privilege-manager/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/SDL2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/sensor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/storage&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/system&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tef&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/telephony&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tzsh&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ui&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/vulkan&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_evas&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/yaca&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/dbus-1.0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/glib-2.0/include&quot;"/>
+								</option>
+								<option id="sbi.gnu.cpp.compiler.option.frameworks_cflags.core.1496285562" name="Tizen-Frameworks-Other-Cflags" superClass="sbi.gnu.cpp.compiler.option.frameworks_cflags.core" valueType="stringList">
+									<listOptionValue builtIn="false" value="${TC_COMPILER_MISC}"/>
+									<listOptionValue builtIn="false" value="${RS_COMPILER_MISC}"/>
+									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="-mthumb"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.include.paths.1189422842" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/inc}&quot;"/>
+								</option>
+								<option id="sbi.gnu.cpp.compiler.option.frameworks.core.673715137" name="Tizen-Frameworks" superClass="sbi.gnu.cpp.compiler.option.frameworks.core" valueType="userObjs">
+									<listOptionValue builtIn="false" value="Native_API"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.387558553" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool command="clang" id="org.tizen.nativecore.tool.sbi.gnu.c.compiler.1137242669" name="C Compiler" superClass="org.tizen.nativecore.tool.sbi.gnu.c.compiler">
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.142779797" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" valueType="enumerated"/>
+								<option defaultValue="gnu.c.debugging.level.none" id="sbi.gnu.c.compiler.option.debugging.level.core.1980564554" name="Debug level" superClass="sbi.gnu.c.compiler.option.debugging.level.core" valueType="enumerated"/>
+								<option defaultValue="false" id="sbi.gnu.c.compiler.option.misc.pic.core.493460993" name="-fPIC option" superClass="sbi.gnu.c.compiler.option.misc.pic.core" valueType="boolean"/>
+								<option id="sbi.gnu.c.compiler.option.2097299830" name="Tizen-Target" superClass="sbi.gnu.c.compiler.option" valueType="userObjs">
+									<listOptionValue builtIn="false" value="wearable-4.0-device.core_llvm40.armel"/>
+								</option>
+								<option id="sbi.gnu.c.compiler.option.frameworks_inc.core.878927375" name="Tizen-Frameworks-Include-Path" superClass="sbi.gnu.c.compiler.option.frameworks_inc.core" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/libxml2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-agent&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appcore-watch&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/appfw&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/asp/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/badge&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/base&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/cairo&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/calendar-service2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/chromium-ewk&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ckm&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/contacts-svc&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/context-service/wearable/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/csr&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dali-toolkit&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dbus-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/device&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/dlog&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-buffer-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-con-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-file-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-imf-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-input-evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ecore-ipc-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ector-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/e_dbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/edje-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efl-extension&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/efreet-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eina-1/eina&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eio-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eldbus-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/elementary-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/embryo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/emile-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eo-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/eom&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ethumb-client-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/evas-1&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/feedback&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/fontconfig&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/freetype2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/gio-unix-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/glib-2.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/harfbuzz&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/iotcon&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/json-glib-1.0&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/location&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/maps&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/media-content&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/messaging&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/metadata-editor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/minizip&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/network&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/notification&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/nsd/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/phonenumber-utils&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/privacy-privilege-manager/&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/SDL2&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/sensor&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/storage&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/system&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tef&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/telephony&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/tzsh&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/ui&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/vulkan&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_service&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_dali&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/widget_viewer_evas&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/include/yaca&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/dbus-1.0/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SBI_SYSROOT}/usr/lib/glib-2.0/include&quot;"/>
+								</option>
+								<option id="sbi.gnu.c.compiler.option.frameworks_cflags.core.1575227869" name="Tizen-Frameworks-Other-Cflags" superClass="sbi.gnu.c.compiler.option.frameworks_cflags.core" valueType="stringList">
+									<listOptionValue builtIn="false" value="${TC_COMPILER_MISC}"/>
+									<listOptionValue builtIn="false" value="${RS_COMPILER_MISC}"/>
+									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="-mthumb"/>
+								</option>
+								<option id="gnu.c.compiler.option.include.paths.1077306606" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/inc}&quot;"/>
+								</option>
+								<option id="sbi.gnu.c.compiler.option.frameworks.core.1017143994" name="Tizen-Frameworks" superClass="sbi.gnu.c.compiler.option.frameworks.core" valueType="userObjs">
+									<listOptionValue builtIn="false" value="Native_API"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.676158634" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="org.tizen.nativeide.tool.sbi.gnu.c.linker.base.1395934688" name="C Linker" superClass="org.tizen.nativeide.tool.sbi.gnu.c.linker.base"/>
+							<tool command="clang++" id="org.tizen.nativecore.tool.sbi.gnu.cpp.linker.1637547245" name="C++ Linker" superClass="org.tizen.nativecore.tool.sbi.gnu.cpp.linker">
+								<option defaultValue="true" id="sbi.gnu.cpp.link.option.strip.1297566164" name="Omit all symbol information (-s)" superClass="sbi.gnu.cpp.link.option.strip" valueType="boolean"/>
+								<option defaultValue="false" id="sbi.gnu.cpp.linker.option.shared_flag.core.727198146" name="Linker.Shared" superClass="sbi.gnu.cpp.linker.option.shared_flag.core" valueType="boolean"/>
+								<option defaultValue="false" id="sbi.gnu.cpp.linker.option.noundefined.core.535235009" name="Report unresolved symbol references (-Wl,--no-undefined)" superClass="sbi.gnu.cpp.linker.option.noundefined.core" valueType="boolean"/>
+								<option id="sbi.gnu.cpp.linker.option.frameworks_lflags.core.400533959" name="Tizen-Frameworks-Other-Lflags" superClass="sbi.gnu.cpp.linker.option.frameworks_lflags.core" valueType="stringList">
+									<listOptionValue builtIn="false" value="${TC_LINKER_MISC}"/>
+									<listOptionValue builtIn="false" value="${RS_LINKER_MISC}"/>
+									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="-L&quot;${SBI_SYSROOT}/usr/lib&quot;"/>
+									<listOptionValue builtIn="false" value="$(RS_LIBRARIES)"/>
+								</option>
+								<option id="gnu.cpp.link.option.paths.541739092" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/lib}&quot;"/>
+								</option>
+							</tool>
+							<tool command="#{PLATFORM_DEFAULT_GCC_PREFIX}as" id="org.tizen.nativeapp.tool.sbi.gnu.assembler.base.1524889018" name="Assembler" superClass="org.tizen.nativeapp.tool.sbi.gnu.assembler.base">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.14024593" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="org.tizen.nativecore.tool.fnmapgen.1681502511" name="C FN-Map Generator" superClass="org.tizen.nativecore.tool.fnmapgen"/>
+							<tool id="org.tizen.nativecore.tool.fnmapgen.cpp.631877962" name="C++ FN-Map Generator" superClass="org.tizen.nativecore.tool.fnmapgen.cpp"/>
+							<tool id="org.tizen.nativecore.tool.ast.493795984" name="C Static Analyzer" superClass="org.tizen.nativecore.tool.ast"/>
+							<tool id="org.tizen.nativecore.tool.ast.cpp.2086516662" name="C++ Static Analyzer" superClass="org.tizen.nativecore.tool.ast.cpp"/>
+							<tool id="org.tizen.nativecore.tool.sbi.gnu.archiver.mergelib.390239967" name="Archive Generator" superClass="org.tizen.nativecore.tool.sbi.gnu.archiver.mergelib"/>
+							<tool id="org.tizen.nativecore.tool.sbi.po.compiler.1793407778" name="PO Resource Compiler" superClass="org.tizen.nativecore.tool.sbi.po.compiler"/>
+							<tool id="org.tizen.nativecore.tool.sbi.edc.compiler.463904354" name="EDC Resource Compiler" superClass="org.tizen.nativecore.tool.sbi.edc.compiler"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="res"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="shared"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="Utils.org.tizen.nativecore.target.sbi.gcc45.lib.2142627624" name="Tizen Native Static Library" projectType="org.tizen.nativecore.target.sbi.gcc45.lib"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="org.tizen.nativecore.config.sbi.gcc45.lib.debug.1642431557">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="org.tizen.nativecore.config.sbi.gcc45.lib.release.1180189586">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+</cproject>
