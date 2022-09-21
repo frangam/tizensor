@@ -9,52 +9,58 @@ typedef struct appdata {
 
 static bool first_resume = true;
 
-
-//Callback de lanzamiento del servicio MANAGER
 static void launch_service_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	//	obj-> //CAMBIAR NOMBRE AL BOTON Y AL BOTON STOP
-	//lanzamos el servicio controlador de todos
-//	dlog_print(DLOG_INFO, LOG_TAG, "launch service %s", SERVICE_MANAGER_ID);
-
-	//lanzamos recorder y http services desde el inicio de la creacion de la app
-//	send_message_to_service_with_data(HTTPPOSTREQ_SERVICE_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
-//	send_message_to_service_with_data(RECORDER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
-//	send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
-//	send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
+	//	obj-> //we can change the name of button...
+	dlog_print(DLOG_INFO, LOG_TAG, "launch service %s", HTTPPOSTREQ_SERVICE_ID);
+	send_message_to_service_with_data(HTTPPOSTREQ_SERVICE_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
+    
+    dlog_print(DLOG_INFO, LOG_TAG, "launch service %s", RECORDER_SERVICE_ID);
+	send_message_to_service_with_data(RECORDER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
+    
+    dlog_print(DLOG_INFO, LOG_TAG, "launch service %s", BLUETOOTH_TRANSFER_SERVICE_ID);
+	send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
+    
+    dlog_print(DLOG_INFO, LOG_TAG, "launch service %s", SERVICE_MANAGER_ID);
+	send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
 	ui_app_exit();
 }
 
 
 static void stop_sensors_cb(void *data, Evas_Object *obj, void *event_info)
 {
-//	send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
-//	send_message_to_service_with_data(HTTPPOSTREQ_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
-//	send_message_to_service_with_data(RECORDER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
-//	send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
+    dlog_print(DLOG_INFO, LOG_TAG, "stop service %s", SERVICE_MANAGER_ID);
+	send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
+    
+    dlog_print(DLOG_INFO, LOG_TAG, "stop service %s", HTTPPOSTREQ_SERVICE_ID);
+	send_message_to_service_with_data(HTTPPOSTREQ_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
+    
+    dlog_print(DLOG_INFO, LOG_TAG, "stop service %s", RECORDER_SERVICE_ID);
+	send_message_to_service_with_data(RECORDER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
+    
+    dlog_print(DLOG_INFO, LOG_TAG, "stop service %s", BLUETOOTH_TRANSFER_SERVICE_ID);
+	send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
 	ui_app_exit();
 }
 
-//Callback para eliminar datos
 static void delete_service_cb(void *data, Evas_Object *obj, void *event_info)
 {
-//	send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, DELETE_LOCAL_DATA, DELETE_DATA_AND_CLOSE);
+	send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, DELETE_LOCAL_DATA, DELETE_DATA_AND_CLOSE);
 	ui_app_exit();
 }
 
 static void send_data_to_server_cb(void *data, Evas_Object *obj, void *event_info)
 {
-//	obj-> //CAMBIAR NOMBRE AL BOTON
-//	send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, SERVICE_ACTION, CHECK_INTERNET_ACTION);
+	send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, SERVICE_ACTION, CHECK_INTERNET_ACTION);
     ui_app_exit();
 }
 
 static void close_app_cb(void *data, Evas_Object *obj, void *event_info)
 {
-//	send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, SERVICE_ACTION, STOP_ALL_ACTION);
-//	send_message_to_service_with_data(HTTPPOSTREQ_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
-//	send_message_to_service_with_data(RECORDER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
-//	send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
+	send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, SERVICE_ACTION, STOP_ALL_ACTION);
+	send_message_to_service_with_data(HTTPPOSTREQ_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
+	send_message_to_service_with_data(RECORDER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
+	send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
 	ui_app_exit();
 }
 
@@ -101,22 +107,30 @@ create_base_gui(appdata_s *ad)
 	elm_win_resize_object_add(ad->win, ad->conform);
 	evas_object_show(ad->conform);
 
-	/* List of buttons */
 	ad->list = elm_list_add(ad->conform);
+
+    /* List of buttons */
+    /* UNCOMMENT IF YOU WANT TO CONTROL THE APP WITH WATCH BUTTONS */
+    /* IF NOT, YOU WILL CONTROL THE WATCH APP THROUGH BLE GATT */
 //	elm_list_item_append (ad->list, "Start", NULL, NULL, launch_service_cb, NULL);
 //	elm_list_item_append (ad->list, "Stop", NULL, NULL, stop_sensors_cb, NULL);
-//	//elm_list_item_append (ad->list, "Delete", NULL, NULL, delete_service_cb, NULL);
+//    elm_list_item_append (ad->list, "Send To Server", NULL, NULL, send_data_to_server_cb, NULL);
+//    elm_list_item_append (ad->list, "Delete", NULL, NULL, delete_service_cb, NULL);
 //	elm_list_item_append (ad->list, "Close", NULL, NULL, close_app_cb, NULL);
+    
+    
+    
 //	elm_list_item_append (ad->list, "", NULL, NULL, NULL, NULL);
 //	elm_list_item_append (ad->list, "", NULL, NULL, NULL, NULL);
 //	elm_list_item_append (ad->list, "", NULL, NULL, NULL, NULL);
 //	elm_list_item_append (ad->list, "", NULL, NULL, NULL, NULL);
-//	elm_list_item_append (ad->list, "Send To Server", NULL, NULL, send_data_to_server_cb, NULL);
+
 //	elm_list_item_append (ad->list, "", NULL, NULL, NULL, NULL);
 //	elm_list_item_append (ad->list, "", NULL, NULL, NULL, NULL);
 //	elm_list_item_append (ad->list, "", NULL, NULL, NULL, NULL);
+    
+    /* APP Title*/
 	elm_list_item_append (ad->list, "UGR", NULL, NULL, NULL, NULL);
-//	elm_list_item_append (ad->list, "Delete", NULL, NULL, delete_service_cb, NULL);
 	elm_object_content_set(ad->conform, ad->list);
 	evas_object_show(ad->list);
 
@@ -140,11 +154,8 @@ app_create(void *data)
 
 	create_base_gui(ad);
 
-
 //	sensors = malloc(NUM_SENSORS * sizeof *sensors);
-
 //	sensors = &sensors_array;
-
 
 	return true;
 }
@@ -153,7 +164,6 @@ static void
 app_control(app_control_h app_control, void *data)
 {
 	/* Handle the launch request. */
-
 }
 
 static void
@@ -168,14 +178,13 @@ app_resume(void *data)
 	/* Take necessary actions when application becomes visible. */
 	dlog_print(DLOG_INFO, LOG_TAG, "app_resume");
 
-	//primera vez que se muestra la app y arrancamos los serivicios
+	//first time the app starts
 	if(first_resume){
 		first_resume = false;
 		create_gatt_client();
-//		mqtt_create();
-//		send_message_to_service_with_data(HTTPPOSTREQ_SERVICE_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
-//		send_message_to_service_with_data(RECORDER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
-//		send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
+        
+        dlog_print(DLOG_INFO, LOG_TAG, "launch service %s", BLUETOOTH_TRANSFER_SERVICE_ID);
+        send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
 	}
 }
 

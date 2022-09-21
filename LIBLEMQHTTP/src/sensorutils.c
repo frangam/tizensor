@@ -4,10 +4,11 @@
 sensordata_s sensors[NUM_SENSORS];
 location_manager_h location_manager = NULL;
 sensordata_s* sensors2;
+
+/* To know which are the alive sensor in the app */
 int total_active_sensors = 0;
 
 void launch_sensors(my_sensor_types_e types){
-	//iniciar todos los sensores
 	int i=0;
 	bool created = false;
 	char* serviceID = NULL;
@@ -15,8 +16,6 @@ void launch_sensors(my_sensor_types_e types){
 	total_active_sensors = 0;
 	char** serviceIDs = get_service_ids_contained_in_enum(types, &total_active_sensors);
 	int total_services = sizeof serviceIDs / sizeof *serviceIDs;
-
-//	sensors2 = malloc(total_services * sizeof(sensordata_s));
 
 	dlog_print(DLOG_INFO, LOG_TAG, "launch request services total (sizeof): %d", total_services);
 	dlog_print(DLOG_INFO, LOG_TAG, "launch request services total (returned): %d", total_active_sensors);
@@ -31,35 +30,7 @@ void launch_sensors(my_sensor_types_e types){
 			created = create_sensor(svID, LOG_TAG, &sensors[i]);
 		}
 	}
-//	while(*serviceIDs) {
-//		dlog_print(DLOG_INFO, LOG_TAG, "launch request service for %s", *serviceIDs);
-//		if(!strcmp(*serviceIDs, LOCATION_SERVICE_ID)){
-//			created = init_location(&sensors[i]);
-//		}
-//		else{
-//			created = create_sensor(*serviceIDs, LOG_TAG, &sensors[i]);
-//		}
-//	    serviceIDs++;
-//	    i++;
-//
-//	}
-
-
-//
-//	for(i=0; i<NUM_SENSORS; i++){
-//		serviceID = get_service_id_by_index(i);
-//
-//		if(!strcmp(serviceID, LOCATION_SERVICE_ID)){
-//			created = init_location(&sensors[i]);
-//		}
-//		else{
-//			created = create_sensor(serviceID, LOG_TAG, &sensors[i]);
-//		}
-//		dlog_print(DLOG_INFO, LOG_TAG, "created sensor [%s, %d]", sensors[i].serviceID, sensors[i].type);
-//	}
 }
-
-
 
 void stop_sensors(){
 	int i;
@@ -96,23 +67,21 @@ bool create_sensor(char* serviceID, char* serviceTAG, sensordata_s* sd){
 
 	dlog_print(DLOG_INFO, serviceTAG, "trying to start service: %s", serviceID);
 
-	//Sensor no soportado
 	bool sensor_supported = false;
 	if (sensor_is_supported(type, &sensor_supported) != SENSOR_ERROR_NONE || !sensor_supported)
 	{
 		dlog_print(DLOG_ERROR, serviceTAG, "%s sensor not supported", serviceID);
 		service_app_exit();
 	}
-	else{ //Sensor soportado
+	else{
 		dlog_print(DLOG_INFO, serviceTAG, "%s sensor supported", serviceID);
-		sd->serviceID = serviceID; //guardamos el id del servicio
-		sd->serviceTAG = serviceTAG; //guardamos el service tag
-		sd->type = type; //guardamos el tipo de sensor
-		sd->dataCaptured = ""; //inicializamos
+		sd->serviceID = serviceID;
+		sd->serviceTAG = serviceTAG;
+		sd->type = type;
+		sd->dataCaptured = "";
 		sd->stop_requested = false;
 		sd->header_file_recorded = false;
 
-		//iniciar el listener del sensor
 		int r = sensor_get_default_sensor(type, &sd->sensor);
 		if(r != SENSOR_ERROR_NONE){
 			dlog_print(DLOG_ERROR, serviceTAG, "error getting sensor: %s", get_sensor_error_message(r));
@@ -132,7 +101,6 @@ bool create_sensor(char* serviceID, char* serviceTAG, sensordata_s* sd){
 
 			if (sensor_create_listener(sd->sensor, &sd->listener) == SENSOR_ERROR_NONE
 				&& sensor_listener_set_event_cb(sd->listener, interval, sensor_capture_data, sd) == SENSOR_ERROR_NONE
-//				&& sensor_listener_set_interval(sd->listener, interval) == SENSOR_ERROR_NONE
 				&& sensor_listener_set_attribute_int(sd->listener, SENSOR_ATTRIBUTE_PAUSE_POLICY, SENSOR_PAUSE_NONE) == SENSOR_ERROR_NONE
 				&& sensor_listener_set_option(sd->listener, SENSOR_OPTION_ALWAYS_ON) == SENSOR_ERROR_NONE
 				)
@@ -142,27 +110,13 @@ bool create_sensor(char* serviceID, char* serviceTAG, sensordata_s* sd){
 				if (success)
 				{
 					int sensor_id = get_service_index_by_id(serviceID);
-//					sensors[sensor_id] = (sensordata_s *) malloc(sizeof(sensordata_s));
-//					sensors[sensor_id].serviceID = sd->serviceID;
-//					sensors[sensor_id].serviceTAG = sd->serviceTAG;
-//					sensors[sensor_id].type = sd->type;
-//					sensors[sensor_id].dataCaptured = sd->dataCaptured;
-//					sensors[sensor_id].stop_requested = sd->stop_requested;
-//					sensors[sensor_id].sensor = sd->sensor;
-//					sensors[sensor_id].listener = sd->listener;
-
 					dlog_print(DLOG_INFO, serviceTAG, "%s service listener created and started", serviceID);
+                    send_message_to_service_with_data(serviceID, LOG_TAG, LAUNCH_ACTION, LAUNCH_ACTION);
 
-//					//force first read
+					//force first read
 					if(!strcmp(sd->serviceID, PEDOMETER_SERVICE_ID)){
-//						ecore_timer_add(0.04, force_read_sensor_data, (char*) sd->serviceID);
 						force_read_sensor_data(sd->serviceID);
 					}
-
-//					dlog_print(DLOG_INFO, serviceTAG, "%s service listener created %s", serviceID, sensors[sensor_id].serviceID);
-
-//					sd->gatt_properties = BT_GATT_PROPERTY_READ;
-//					send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, sd->serviceTAG, sd->serviceID, STR_BT_READ_PROPERTY);
 				}
 				else{
 					dlog_print(DLOG_ERROR, serviceTAG, "%s listener not started", serviceID);
@@ -221,7 +175,6 @@ void register_sensor_data_captured(sensordata_s* sd, char* content){
 	else{
 		dlog_print(DLOG_INFO, sd->serviceTAG, "data captured from %s: %s", sd->serviceID,content);
 
-		//guardamos los datos una vez que ya se ha indicado
 		if(start_to_record_data){
 			dlog_print(DLOG_INFO, sd->serviceTAG, "%s header recorded %s", sd->serviceID, sd->header_file_recorded ? "true" : "false");
 //			if(!sd->header_file_recorded){
@@ -240,7 +193,6 @@ void register_sensor_data_captured(sensordata_s* sd, char* content){
 			sd->dataCaptured = "";
 
 			//---------------------------------
-			//guardar ultimo valor capturado
 			char*last_val_id = get_last_value_id(sd->serviceID);
 			dlog_print(DLOG_INFO, sd->serviceTAG, "id file path for last val %s; content: %s", last_val_id, content);
 
@@ -248,8 +200,9 @@ void register_sensor_data_captured(sensordata_s* sd, char* content){
 			//---------------------------------
 		}
 
-		//enviarlo por bluetooth
-		send_value_to_device(sd->serviceID, sd->serviceID, content);
+		//SEND DATA collected to BluetoothTransfer service
+        send_message_to_serveice_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, serviceID, content);
+//		send_value_to_device(sd->serviceID, sd->serviceID, content);
 	}
 }
 

@@ -33,17 +33,17 @@ typedef struct sensordata
 } sensordata_s;
 
 typedef enum{
-	NONE 					= 0,				// 0000000000
+	NONE 					= 0,			// 0000000000
 	PEDOMETER				= 1 << 0,		// 0000000001
 	ACCELEROMETER			= 1 << 1,		// 0000000010
 	GYROSCOPE				= 1 << 2,		// 0000000100
 	HEARTRATE				= 1 << 3,		// 0000001000
-	GRAVITY 					= 1 << 4,		// 0000010000
+    GRAVITY 				= 1 << 4,		// 0000010000
 	LINEAR_ACCELERATION		= 1 << 5,		// 0000100000
 	LIGHT					= 1 << 6,		// 0001000000
 	HR_GREEN_LIGHT			= 1 << 7, 		// 0010000000
-	PRESSURE					= 1 << 8,		// 0100000000
-	LOCATION					= 1 << 9			// 1000000000
+    PRESSURE				= 1 << 8,		// 0100000000
+	LOCATION				= 1 << 9		// 1000000000
 } my_sensor_types_e;
 
 typedef struct sensordata_dict

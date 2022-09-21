@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="es.ugr.frailty.bluetoothtransfer" version="1.0.0">
+<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="es.ugr.tizensor.bluetoothtransfer" version="1.0.0">
     <profile name="wearable"/>
-    <service-application appid="es.ugr.frailty.bluetoothtransfer" exec="bluetoothtransfer" multiple="false" nodisplay="true" taskmanage="false" type="capp">
+    <service-application appid="es.ugr.tizensor.bluetoothtransfer" exec="bluetoothtransfer" multiple="false" nodisplay="true" taskmanage="false" type="capp">
         <label>bluetoothtransfer</label>
         <icon>bluetoothtransfer.png</icon>
     </service-application>

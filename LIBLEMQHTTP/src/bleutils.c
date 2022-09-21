@@ -217,8 +217,10 @@ void _bt_adapter_le_scan_result_cb(int result, bt_adapter_le_device_scan_result_
 		dlog_print(DLOG_INFO, LOG_TAG, "gatt device name %s", device_name);
 	}
 
-	if (ret == BT_ERROR_NONE && (!strcmp(device_name, BT_REMOTE_DEVICE_NAME)
+	if (ret == BT_ERROR_NONE && (!strcmp(device_name, BT_REMOTE_DEVICE_NAME) //"TIZENSOR"
+                                 /* ONLY FOR TEST PURPOSES*/
 //			|| !strcmp(discovery_info->remote_address, BT_REMOTE_DEVICE_ADDRESS)
+                                 /* ONLY FOR TEST PURPOSES*/
 //			|| !strcmp(discovery_info->remote_address, BT_REMOTE_DEVICE_ADDRESS_2)
 			)) {
 		dlog_print(DLOG_INFO, LOG_TAG, "gatt it is our device: %s", discovery_info->remote_address);
@@ -238,7 +240,8 @@ void _bt_adapter_le_scan_result_cb(int result, bt_adapter_le_device_scan_result_
 				else{
 					dlog_print(DLOG_INFO, LOG_TAG, "gatt bt_gatt_client_set_service_changed_cb success");
 				}
-
+                
+                /* Iterate over GATT services */
 				ret = bt_gatt_client_foreach_services(gatt_client, __bt_gatt_client_foreach_svc_cb, NULL);
 				if (ret != BT_ERROR_NONE) {
 					dlog_print(DLOG_ERROR, LOG_TAG, "gatt fail to read services [%s]", bt_get_error_message(ret));
@@ -251,6 +254,49 @@ void _bt_adapter_le_scan_result_cb(int result, bt_adapter_le_device_scan_result_
 		}
 	}
 }
+
+void listen_all_characteristic_values_changed_in_remote_device(){
+    listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_START_SENSORS_ID);
+    listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_STOP_SENSORS_ID);
+    listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_DELETE_SENSORS_DATA_ID);
+    listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_RECORD_TIME_MARK_ID);
+    listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_SEND_SENSORS_DATA_TO_CLOUD_ID);
+    listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_CONNECTED_ID);
+}
+
+bool listen_characteristic_value_changed_in_remote_device(char* serviceID, char* characteristicID){
+    bool r = false;
+    bt_gatt_h svc = NULL;
+    bt_gatt_h chr = NULL;
+    char* serviceUUID = serviceNameToUUID(serviceID);
+    char* characteristicUUID = characteristicNameToUUID(characteristicID);
+    char* characteristicName = uuidToCharacteristicName(characteristicUUID);
+    int ret = bt_gatt_client_get_service(gatt_client, serviceUUID, &svc);
+
+    if (ret != BT_ERROR_NONE) {
+        dlog_print(DLOG_ERROR, LOG_TAG, "gatt bt_gatt_client_get_service failed: %s", bt_get_error_message(ret));
+    }
+    else{
+        ret = bt_gatt_service_get_characteristic(svc, characteristicUUID, &chr);
+        if (ret != BT_ERROR_NONE) {
+            dlog_print(DLOG_INFO, LOG_TAG, "gatt bt_gatt_service_get_characteristic failed: %s", bt_get_error_message(ret));
+        }
+        else{
+            ret = bt_gatt_client_set_characteristic_value_changed_cb(chr, __bt_gatt_client_value_changed_cb, NULL);
+            if (ret != BT_ERROR_NONE) {
+                dlog_print(DLOG_INFO, LOG_TAG, "gatt bt_gatt_client_set_characteristic_value_changed_cb failed: %s", bt_get_error_message(ret));
+            }
+            else{
+                r = true;
+                dlog_print(DLOG_INFO, LOG_TAG, "gatt bt_gatt_client_set_characteristic_value_changed_cb succeed: %s [uuid: %s]", characteristicName, characteristicUUID);
+            }
+        }
+    }
+
+    return r;
+}
+
+/* ALL BLE CALLBACKS */
 
 void __bt_gatt_client_service_changed_cb(bt_gatt_client_h client, bt_gatt_client_service_change_type_e change_type, const char *service_uuid, void *user_data){
 	dlog_print(DLOG_INFO, LOG_TAG, "gatt services changed on remote device");
@@ -275,12 +321,12 @@ bool __bt_gatt_client_foreach_svc_cb(int total, int index, bt_gatt_h svc_handle,
 
 	dlog_print(DLOG_INFO, LOG_TAG, "gatt callback __bt_gatt_client_foreach_svc_cb");
 
-
 	bt_gatt_get_uuid(svc_handle, &uuid);
 	dlog_print(DLOG_INFO, LOG_TAG, "gatt service [%d / %d] uuid : (%s)", index, total, uuid);
 
 	// g_free(uuid);
-
+    
+    /* Iterate over GATT characteristics */
 	ret = bt_gatt_service_foreach_characteristics(svc_handle, __bt_gatt_client_foreach_chr_cb, NULL);
 	if (ret != BT_ERROR_NONE) {
 		dlog_print(DLOG_INFO, LOG_TAG, "gatt bt_gatt_service_foreach_characteristics is failed : %s", bt_get_error_message(ret));
@@ -288,11 +334,6 @@ bool __bt_gatt_client_foreach_svc_cb(int total, int index, bt_gatt_h svc_handle,
 
 	char* uuid_control = serviceNameToUUID(BT_EXT_CONTROL_SVC_ID);
 	dlog_print(DLOG_INFO, LOG_TAG, "gatt listen_all_characteristic_values_changed_in_remote_device check: %s == %s", uuid, uuid_control);
-
-//	if(!strcasecmp(uuid, uuid_control)){
-//		dlog_print(DLOG_INFO, LOG_TAG, "gatt listen_all_characteristic_values_changed_in_remote_device");
-//		listen_all_characteristic_values_changed_in_remote_device();
-//	}
 
 	return true;
 }
@@ -305,56 +346,15 @@ bool __bt_gatt_client_foreach_chr_cb(int total, int index, bt_gatt_h chr_handle,
 
 	int r = bt_gatt_get_uuid(chr_handle, &uuid);
 
-	//avisar al remote device que se ha conectado satisfactoriamente
+	//CONNECTION SUCCESS and tells to peripheral is paired
 	if(r == BT_ERROR_NONE && !strcasecmp(uuid, characteristicNameToUUID(BLE_CHAR_CONNECTED_ID))){
-		dlog_print(DLOG_INFO, LOG_TAG, "gatt connectado. char uuid %s", uuid);
-		send_value_to_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_CONNECTED_ID, "Conectado");
+		dlog_print(DLOG_INFO, LOG_TAG, "gatt connected. char uuid %s", uuid);
+		send_value_to_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_CONNECTED_ID, "Connected");
 	}
 
 	dlog_print(DLOG_INFO, LOG_TAG, "\t gatt [%d / %d] uuid : (%s)", index, total, uuid);
 
 	return true;
-}
-
-void listen_all_characteristic_values_changed_in_remote_device(){
-	listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_START_SENSORS_ID);
-	listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_STOP_SENSORS_ID);
-	listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_DELETE_SENSORS_DATA_ID);
-	listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_RECORD_TIME_MARK_ID);
-	listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_SEND_SENSORS_DATA_TO_CLOUD_ID);
-	listen_characteristic_value_changed_in_remote_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_CONNECTED_ID);
-}
-
-bool listen_characteristic_value_changed_in_remote_device(char* serviceID, char* characteristicID){
-	bool r = false;
-	bt_gatt_h svc = NULL;
-	bt_gatt_h chr = NULL;
-	char* serviceUUID = serviceNameToUUID(serviceID);
-	char* characteristicUUID = characteristicNameToUUID(characteristicID);
-	char* characteristicName = uuidToCharacteristicName(characteristicUUID);
-	int ret = bt_gatt_client_get_service(gatt_client, serviceUUID, &svc);
-
-	if (ret != BT_ERROR_NONE) {
-	    dlog_print(DLOG_ERROR, LOG_TAG, "gatt bt_gatt_client_get_service failed: %s", bt_get_error_message(ret));
-	}
-	else{
-		ret = bt_gatt_service_get_characteristic(svc, characteristicUUID, &chr);
-		if (ret != BT_ERROR_NONE) {
-			dlog_print(DLOG_INFO, LOG_TAG, "gatt bt_gatt_service_get_characteristic failed: %s", bt_get_error_message(ret));
-		}
-		else{
-			ret = bt_gatt_client_set_characteristic_value_changed_cb(chr, __bt_gatt_client_value_changed_cb, NULL);
-			if (ret != BT_ERROR_NONE) {
-				dlog_print(DLOG_INFO, LOG_TAG, "gatt bt_gatt_client_set_characteristic_value_changed_cb failed: %s", bt_get_error_message(ret));
-			}
-			else{
-				r = true;
-				dlog_print(DLOG_INFO, LOG_TAG, "gatt bt_gatt_client_set_characteristic_value_changed_cb succeed: %s [uuid: %s]", characteristicName, characteristicUUID);
-			}
-		}
-	}
-
-	return r;
 }
 
 void __bt_gatt_client_value_changed_cb(bt_gatt_h chr, char *value, int len, void *user_data){
@@ -368,51 +368,53 @@ void __bt_gatt_client_value_changed_cb(bt_gatt_h chr, char *value, int len, void
     dlog_print(DLOG_INFO, LOG_TAG, "gatt value: %s", (char*) value);
 
     char* data_str = substr(value, 0, len);
-    	dlog_print(DLOG_INFO, LOG_TAG, "gatt value changed: %s", data_str);
+    dlog_print(DLOG_INFO, LOG_TAG, "gatt value changed: %s", data_str);
 
-    	if(!strcasecmp(uuid, characteristicNameToUUID(BLE_CHAR_START_SENSORS_ID))){
-        	dlog_print(DLOG_INFO, LOG_TAG, "gatt value start characteristic value changed: %s", (char*) value);
-        	int value_int = atoi((char*)value);
-        	dlog_print(DLOG_INFO, LOG_TAG, "gatt value start characteristic value (int) changed: %d", value_int);
-
-    		launch_sensors((my_sensor_types_e) value_int);
-    	}
-    	else{
-//        	dlog_print(DLOG_INFO, LOG_TAG, "gatt value start characteristic not: %s", value);
-    		if(!strncmp(data_str, BT_CONNECTED_ACTION, STRNCMP_LIMIT)){
-			dlog_print(DLOG_INFO, LOG_TAG, "gatt connected action");
-			send_value_to_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_CONNECTED_ID, "Conectado");
-		}
-		else if(!strncmp(data_str, BT_RECORD_ACTION, STRNCMP_LIMIT)){
-			dlog_print(DLOG_INFO, LOG_TAG, "gatt record time mark action");
-			record_time_mark();
-		}
-//    	else if(!strncmp(data_str, BT_START_ACTION, STRNCMP_LIMIT)){
-//    		dlog_print(DLOG_INFO, LOG_TAG, "gatt start action");
-////    		send_message_to_service_with_data(DATACOLLECTOR_APP_ID, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
-//    		launch_sensors();
-//    	}
-		else if(!strncmp(data_str, BT_STOP_ACTION, STRNCMP_LIMIT)){
-			dlog_print(DLOG_INFO, LOG_TAG, "gatt stop action");
-			start_to_record_data = false;
-			current_time_mark_counter = 0;
-			stop_sensors();
-//    		send_message_to_service_with_data(DATACOLLECTOR_APP_ID, LOG_TAG, SERVICE_ACTION, STOP_ONLY_SENSORS_ACTION);
-		}
-		else if(!strncmp(data_str, BT_DELETE_ACTION, STRNCMP_LIMIT)){
-			dlog_print(DLOG_INFO, LOG_TAG, "gatt delete action");
-			delete_all_data();
-			send_value_to_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_DELETE_ALL_SUCCEES_ID, "Datos eliminados");
-		}
-		else if(!strncmp(data_str, BT_HTTP_POST_ACTION, STRNCMP_LIMIT)){
-			dlog_print(DLOG_INFO, LOG_TAG, "gatt send data to cloud action");
-			send_all_data_to_server();
-		}
-		else{
-			dlog_print(DLOG_WARN, LOG_TAG, "gatt unrecognized action received");
-		}
-    	}
-
+    /* Launch services request received via GATT*/
+    if(!strcasecmp(uuid, characteristicNameToUUID(BLE_CHAR_START_SENSORS_ID))){
+        dlog_print(DLOG_INFO, LOG_TAG, "gatt value start characteristic value changed: %s", (char*) value);
+        int value_int = atoi((char*)value);
+        dlog_print(DLOG_INFO, LOG_TAG, "gatt value start characteristic value (int) changed: %d", value_int);
+        
+        dlog_print(DLOG_INFO, LOG_TAG, "launch services %d (int) - this int is going to be converted to (my_sensor_types_e) enumerate", value_int);
+        send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, LAUNCH_ACTION, value_int);
+    }
+    else{
+        dlog_print(DLOG_INFO, LOG_TAG, "gatt value start characteristic not: %s", value);
+        
+        /* CONNECTION SUCCESS received, and tells to peripheral we received via BLE*/
+        if(!strncmp(data_str, BT_CONNECTED_ACTION, STRNCMP_LIMIT)){
+            dlog_print(DLOG_INFO, LOG_TAG, "gatt connected action");
+            send_value_to_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_CONNECTED_ID, "Connected");
+        }
+        
+        /* RECORD TIME MARK (LABEL DATA) request received via BLE by the peripheral*/
+        else if(!strncmp(data_str, BT_RECORD_TIME_MARK_ACTION, STRNCMP_LIMIT)){
+            dlog_print(DLOG_INFO, LOG_TAG, "gatt record time mark action");
+            record_time_mark();
+        }
+        /* STOP sensors request received via BLE by the peripheral*/
+        else if(!strncmp(data_str, BT_STOP_ACTION, STRNCMP_LIMIT)){
+            dlog_print(DLOG_INFO, LOG_TAG, "gatt stop action");
+            start_to_record_data = false;
+            current_time_mark_counter = 0;
+            send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, SERVICE_ACTION, STOP_ONLY_SENSORS_ACTION);
+        }
+        /* DELETE sensor data request received via BLE by the peripheral*/
+        else if(!strncmp(data_str, BT_DELETE_ACTION, STRNCMP_LIMIT)){
+            dlog_print(DLOG_INFO, LOG_TAG, "gatt delete action");
+            send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, DELETE_LOCAL_DATA, DELETE_LOCAL_DATA);
+            send_value_to_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_DELETE_ALL_SUCCEES_ID, "Datos eliminados");
+        }
+        /* HTTP post to sent data tu SERVER URL request received via BLE by the peripheral*/
+        else if(!strncmp(data_str, BT_HTTP_POST_ACTION, STRNCMP_LIMIT)){
+            dlog_print(DLOG_INFO, LOG_TAG, "gatt send data to cloud action");
+            send_all_data_to_server();
+        }
+        else{
+            dlog_print(DLOG_WARN, LOG_TAG, "gatt unrecognized action received");
+        }
+    }
 
     return;
 }
@@ -460,8 +462,6 @@ bool send_value_to_device(char* serviceID, char* characteristicUUID, char* data)
 	}
 	return res;
 }
-
-
 
 
 int __bt_gatt_client_set_value(char *type, char *value, bt_gatt_h h){
@@ -545,31 +545,6 @@ void record_time_mark(){
 	send_value_to_device(BT_EXT_CONTROL_SVC_ID, BLE_CHAR_RECORDED_TIME_MARK_SUCCEES_ID, content);
 	write_file_appending_content(TIME_MARKS_FILE_ID, content);
 }
-
-
-//bool send_data_of_any_sensor_to_bt_device(app_control_h app_control){
-//	bool r = false;
-//	char* action_value = NULL;
-//	char* serviceID = "";
-//	char*last_val_id = "";
-//	char* filename = "";
-//	int i;
-//
-//	for(i=0; i<NUM_SENSORS; i++){
-//		serviceID = get_service_id_by_index(i);
-//		r = app_control_get_extra_data(app_control, serviceID, &action_value) == APP_CONTROL_ERROR_NONE
-//						&& action_value != NULL && action_value != "";
-//		if(r){
-//			dlog_print(DLOG_INFO, LOG_TAG, "%s gatt sending data to bt device: %s", serviceID, action_value);
-//			send_value_to_device(serviceID, serviceID, action_value);
-//		}
-//
-//		if(r)
-//			break;
-//	}
-//
-//	return r;
-//}
 
 const char *bt_get_error_message(bt_error_e err)
 {

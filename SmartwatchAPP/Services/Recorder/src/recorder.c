@@ -50,26 +50,25 @@ void service_app_control(app_control_h app_control, void *data)
 	type_app_control_e type = handle_app_control_not_save_data(ANY_SERVICE_ID, app_control, (sensordata_s*)data);
 
 	if(type == SPECIFIC){
+        /* DELETE DATA & CLOSE APP*/
 		if(app_control_get_extra_data(app_control, DELETE_LOCAL_DATA, &action_value) == APP_CONTROL_ERROR_NONE
 				&& action_value != NULL && !strncmp(action_value, DELETE_DATA_AND_CLOSE, STRNCMP_LIMIT)){
 			delete_all_data_and_close_app();
 			send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, SEND_VALUE_TO_DEVICE);
 		}
-		//eliminar todos los datos de todos los sensores y cerrar app
+        /* DELETE DATA & DO NOT CLOSE APP*/
 		else if(app_control_get_extra_data(app_control, DELETE_LOCAL_DATA, &action_value) == APP_CONTROL_ERROR_NONE
 				&& action_value != NULL && !strncmp(action_value, DELETE_LOCAL_DATA, STRNCMP_LIMIT)){
 			delete_all_data_without_close_app();
 			send_message_to_service_with_data(BLUETOOTH_TRANSFER_SERVICE_ID, LOG_TAG, SERVICE_ACTION, SEND_VALUE_TO_DEVICE);
 		}
-		// Obtener datos guardados en local de todos los sensores
+        /* GET LOCAL DATA stored*/
 		else if (app_control_get_extra_data(app_control, SERVICE_ACTION, &action_value) == APP_CONTROL_ERROR_NONE){
-			//obtener los datos locales todos los sensores
 			if(!strncmp(action_value, GET_LOCAL_DATA, STRNCMP_LIMIT)){
-
 				dlog_print(DLOG_INFO, LOG_TAG, "obteniendo datos locales...");
-				char* all_local_data[NUM_SENSORS];
+				char* all_local_data[total_active_sensors];
 				int i;
-				for(i=0; i<NUM_SENSORS; i++){
+				for(i=0; i<total_active_sensors; i++){
 					char* serviceID = get_service_id_by_index(i);
 					//all_local_data[i] = (char*) malloc(4096);
 					//all_local_data[i] = local_data;
@@ -95,7 +94,7 @@ void service_app_control(app_control_h app_control, void *data)
 //				&& action_value != NULL && !strncmp(action_value, DELETE_DATA_AND_CLOSE, STRNCMP_LIMIT)){
 //			dlog_print(DLOG_INFO, LOG_TAG, "trying to delete all");
 //			int i;
-//			for(i=0; i<NUM_SENSORS; i++){
+//			for(i=0; i<total_active_sensors; i++){
 //				remove(get_app_filepath(get_service_id_by_index(i)));
 //			}
 //			dlog_print(DLOG_INFO, LOG_TAG, "delete se eliminaron todos los datos locales");
@@ -111,33 +110,10 @@ bool delete_all_data_without_close_app(){
 	return delete_all_data_recorder(false);
 }
 bool delete_all_data_recorder(bool close_app){
-	dlog_print(DLOG_INFO, LOG_TAG, "trying to delete all");
-	char* serviceID;
-	int i;
-	int total_deleted = 0;
-	bool res = false;
-	bool r = false;
-	bool r2 = false;
-	for(i=0; i<NUM_SENSORS; i++){
-		serviceID = get_service_id_by_index(i);
-		r = remove_file(get_app_filepath(serviceID));
-		r2 = remove_file(get_app_filepath(get_last_value_id(serviceID)));
-
-		dlog_print(DLOG_INFO, LOG_TAG, "delete trying to delete %s", serviceID);
-		if(!r && !r2){
-			dlog_print(DLOG_INFO, LOG_TAG, "[ delete ] %s deleted succeed", serviceID);
-			total_deleted += 2;
-		}
-		else{
-			dlog_print(DLOG_ERROR, LOG_TAG, "[ delete ] %s deleted failed", serviceID);
-		}
-	}
-
-	//eliminar archivo de marcas de tiempo
-	r = remove_file(get_app_filepath(TIME_MARKS_FILE_ID));
-	res = !r && total_deleted == 2*NUM_SENSORS + 1;
-	if(close_app && total_deleted == 2*NUM_SENSORS + 1){
-		dlog_print(DLOG_INFO, LOG_TAG, "delete se eliminaron todos los datos locales");
+	bool res = delete_all_data();
+	
+	if(res && close_app ){
+		dlog_print(DLOG_INFO, LOG_TAG, "all data deleted");
 		send_message_to_service_with_data(SERVICE_MANAGER_ID, LOG_TAG, SERVICE_ACTION, ALL_LOCAL_DATA_DELETED);
 	}
 
@@ -159,7 +135,7 @@ bool local_data_of_any_sensor(app_control_h app_control, operation_e op){
 	char* filename = "";
 	int i;
 
-	for(i=0; i<NUM_SENSORS; i++){
+	for(i=0; i<total_active_sensors; i++){
 		serviceID = get_service_id_by_index(i);
 
 		switch(op){

@@ -41,41 +41,40 @@ extern "C" {
 
 #define STRNCMP_LIMIT 							256
 #define DATA_LINE_SIZE							2048
-#define NUM_SENSORS								10 //quitamos el stress, location y el sleep
+#define NUM_SENSORS								10 //no streess and no sleep sensors
 #define DELAY_FOR_SEND_DATA_TO_SERVER			2
 
-#define GENERAL_SENSORS_MS_INTERVAL				40 //25Hz of sampling frequency
-#define HIGH_SENSORS_MS_INTERVAL					300 //25Hz of sampling frequency
-#define HR_MS_INTERVAL							20 //2Hz of sampling frequency
-#define PEDOMETER_MS_INTERVAL					5000 //1Hz of sampling frequency
-#define LOCATION_MS_INTERVAL						10000
+#define GENERAL_SENSORS_MS_INTERVAL				40 //(1/40)*1000 = 25Hz of sampling frequency
+#define HIGH_SENSORS_MS_INTERVAL				300 //3.3Hz of sampling frequency
+#define HR_MS_INTERVAL							250 //4Hz of sampling frequency
+#define PEDOMETER_MS_INTERVAL					5000 //0.2Hz of sampling frequency
+#define LOCATION_MS_INTERVAL					10000 //0.1Hz
 #define SLEEP_MS_INTERVAL						1000 //1Hz of sampling frequency
 #define STRESS_MS_INTERVAL						1000 //1Hz of sampling frequency
 
 #define MAX_TIME_DIFF							15
 
 //Service ids
-#define ANY_SERVICE_ID							"es.ugr.frailty.*"
-#define MYSERVICELAUNCHER_APP_ID 				"es.ugr.frailty.frailtylauncher" 	// the ID of the UI application of our package
-#define DATACOLLECTOR_APP_ID 					"es.ugr.frailty.sensordatacollector"
-#define SERVICE_MANAGER_ID 						"es.ugr.frailty.servicemanager"
-#define RECORDER_SERVICE_ID 						"es.ugr.frailty.recorder"
-#define HTTPPOSTREQ_SERVICE_ID 					"es.ugr.frailty.httppostreq"
-#define BLUETOOTH_TRANSFER_SERVICE_ID 			"es.ugr.frailty.bluetoothtransfer"
-#define TIME_MARKS_FILE_ID 						"es.ugr.frailty.timemarks"
+#define ANY_SERVICE_ID							"es.ugr.tizensor.*"
+#define MYSERVICELAUNCHER_APP_ID 				"es.ugr.tizensor.tizensorlauncher" 	// the ID of the UI application of our package
+#define SERVICE_MANAGER_ID 						"es.ugr.tizensor.servicemanager"
+#define RECORDER_SERVICE_ID 					"es.ugr.tizensor.recorder"
+#define HTTPPOSTREQ_SERVICE_ID 					"es.ugr.tizensor.httppostreq"
+#define BLUETOOTH_TRANSFER_SERVICE_ID 			"es.ugr.tizensor.bluetoothtransfer"
+#define TIME_MARKS_FILE_ID 						"es.ugr.tizensor.timemarks"
 
-#define PEDOMETER_SERVICE_ID						"es.ugr.frailty.pedometer"			// Index 0
-#define HEART_RATE_SERVICE_ID 					"es.ugr.frailty.heartrate"			// Index 1
-#define ACCELEROMETER_SERVICE_ID 				"es.ugr.frailty.accelerometer"		// Index 2
-#define GYROSCOPE_SERVICE_ID 					"es.ugr.frailty.gyroscope"			// Index 3
-#define LINEAR_ACCELERATION_SERVICE_ID			"es.ugr.frailty.linearacceleration" // Index 4
-#define GRAVITY_SERVICE_ID						"es.ugr.frailty.gravity"				// Index 5
-#define LIGHT_SERVICE_ID							"es.ugr.frailty.light"				// Index 6
-#define PRESSURE_SERVICE_ID						"es.ugr.frailty.pressure"			// Index 7
-#define HR_GREEN_LIGHT_SERVICE_ID				"es.ugr.frailty.hrgreenlight"		// Index 8
-#define LOCATION_SERVICE_ID 						"es.ugr.frailty.location"			// Index 9
-#define STRESS_SERVICE_ID						"es.ugr.frailty.stress"				// Index 10
-#define SLEEP_SERVICE_ID							"es.ugr.frailty.sleep"				// Index 11
+#define PEDOMETER_SERVICE_ID					"es.ugr.tizensor.pedometer"			// Index 0
+#define HEART_RATE_SERVICE_ID 					"es.ugr.tizensor.heartrate"			// Index 1
+#define ACCELEROMETER_SERVICE_ID 				"es.ugr.tizensor.accelerometer"		// Index 2
+#define GYROSCOPE_SERVICE_ID 					"es.ugr.tizensor.gyroscope"			// Index 3
+#define LINEAR_ACCELERATION_SERVICE_ID			"es.ugr.tizensor.linearacceleration" // Index 4
+#define GRAVITY_SERVICE_ID						"es.ugr.tizensor.gravity"			// Index 5
+#define LIGHT_SERVICE_ID						"es.ugr.tizensor.light"				// Index 6
+#define PRESSURE_SERVICE_ID						"es.ugr.tizensor.pressure"			// Index 7
+#define HR_GREEN_LIGHT_SERVICE_ID				"es.ugr.tizensor.hrgreenlight"		// Index 8
+#define LOCATION_SERVICE_ID 					"es.ugr.tizensor.location"			// Index 9
+#define STRESS_SERVICE_ID						"es.ugr.tizensor.stress"			// Index 10
+#define SLEEP_SERVICE_ID						"es.ugr.tizensor.sleep"				// Index 11
 
 #define LAST_VALUE_ID							".lastvalue"
 
@@ -110,7 +109,7 @@ extern "C" {
 //Actions
 #define SERVICE_ACTION 							"service_action"
 #define LAUNCH_ACTION 							"launch"
-#define STOP_ACTION 								"stop"
+#define STOP_ACTION 							"stop"
 #define STOP_ONLY_SENSORS_ACTION 				"stop_only_sensors"
 #define STOP_ALL_ACTION 							"stop_all"
 #define CHECK_INTERNET_ACTION					"check_internet" 					// Comprueba si hay internet y si hay envia los datos al servidor
@@ -123,8 +122,8 @@ extern "C" {
 #define BT_CONNECTED_ACTION						"0"
 #define BT_START_ACTION							"1"
 #define BT_STOP_ACTION							"2"
-#define BT_DELETE_ACTION							"3"
-#define BT_RECORD_ACTION							"4"
+#define BT_DELETE_ACTION						"3"
+#define BT_RECORD_TIME_MARK_ACTION				"4"
 #define BT_HTTP_POST_ACTION						"5"
 #define START_ACTION 							"start"
 #define DELETE_ACTION 							"delete"
@@ -200,10 +199,10 @@ extern int get_service_index_by_id(char* serviceID);
 extern char* get_local_data_message_to_handler(char* serviceID);
 
 /**
- * @brief Envía un mensaje con datos a un servicio
- * @param toServiceID El identificador del servicio al que se envía
- * @param message El mensaje que se envía
- * @param data Los datos que se envían
+ * @brief Send an internal message to a service app with data
+ * @param toServiceID destination service app id
+ * @param message the text message is sent
+ * @param data the extra data are sent
  */
 extern void send_message_to_service_with_data(char* toServiceID, char* serviceTAG, char* message, char* data);
 
@@ -221,8 +220,7 @@ extern char* get_last_value_id(char* serviceID);
 
 
 /**
- * @brief Gestiona el app_control del servicio, es decir, el envío de mensajes entre
- * los micro servicios y el controlador de servicios
+ * @brief manages the app_control of a tizen service app, that means the internal message passing between service apps
  */
 extern type_app_control_e handle_app_control(char* rightCallerID, app_control_h app_control, char* serviceID, bool save);
 extern type_app_control_e handle_app_control_not_save_data(char* rightCallerID, app_control_h app_control, char* serviceID);

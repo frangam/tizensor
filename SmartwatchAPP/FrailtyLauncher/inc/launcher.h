@@ -10,7 +10,6 @@
 
 #include "utils.h"
 #include "bleutils.h"
-#include "mqtthandler.h"
 
 
 #ifdef  LOG_TAG
@@ -25,7 +24,7 @@ void stop_service(char* service_id);
 
 
 #if !defined(PACKAGE)
-#define PACKAGE "es.ugr.frailty.launcher"
+#define PACKAGE "es.ugr.tizensor.launcher"
 #endif
 
 #endif /* __frailtylauncher_H__ */

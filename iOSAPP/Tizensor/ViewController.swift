@@ -6,7 +6,7 @@ import CoreBluetooth
 struct ServiceTypes: OptionSet {
   let rawValue: Int
   
-  static let none           = ServiceTypes(rawValue: 0)
+  static let none           = ServiceTypes([])
   static let pedometer      = ServiceTypes(rawValue: 1 << 0)
   static let accelerometer  = ServiceTypes(rawValue: 1 << 1)
   static let gyroscope      = ServiceTypes(rawValue: 1 << 2)
@@ -16,9 +16,9 @@ struct ServiceTypes: OptionSet {
   static let light          = ServiceTypes(rawValue: 1 << 6)
   static let hrgreen        = ServiceTypes(rawValue: 1 << 7)
   static let pressure       = ServiceTypes(rawValue: 1 << 8)
-  static let location       = ServiceTypes(rawValue: 1 << 9) //not used yet (it's battery high consuming)
+  static let location       = ServiceTypes(rawValue: 1 << 9)
 
-  static let allSensors:ServiceTypes = [.pedometer, .accelerometer, .gyroscope, .heartrate, .linearacc, .gravity, .light, .hrgreen, .pressure]
+  static let allSensors:ServiceTypes = [.pedometer, .accelerometer, .gyroscope, .heartrate, .linearacc, .gravity, .light, .hrgreen, .pressure, .location]
 }
 
 public protocol BLEDelegate {
@@ -84,12 +84,12 @@ let extControlPostHTTPCharacteristicCBUUID = CBUUID(string: "C085302D-5B76-4A9B-
 
 let readCharacteristicsRate = 0.1
 
-let extControlIsConnected = "0"
-let extControlStart = "1"
-let extControlStop = "2"
-let extControlDelete = "3"
+let extControlIsConnected    = "0"
+let extControlStart          = "1"
+let extControlStop           = "2"
+let extControlDelete         = "3"
 let extControlRecordTimeMark = "4"
-let extControlHTTPPOST = "5"
+let extControlHTTPPOST       = "5"
 
 
 
@@ -97,20 +97,20 @@ let extControlHTTPPOST = "5"
 let serviceIds: [CBUUID] = [accelerometerServiceCBUUID, gyroscopeServiceCBUUID, heartRateServiceCBUUID, linearAccelerationServiceCBUUID, gravityServiceCBUUID, lightServiceCBUUID, pressureServiceCBUUID, pedometerServiceCBUUID, hrGreenLightServiceCBUUID, stressServiceCBUUID, locationServiceCBUUID, extControlStartServiceCBUUID, extControlStopServiceCBUUID, extControlDeleteServiceCBUUID, extControlRecordTimeMarkServiceCBUUID, extControlPostHTTPerviceCBUUID] //, locationServiceCBUUID, sleepServiceCBUUID]
 let characteristicsIds: [CBUUID] = [accelerometerCharacteristicCBUUID, gyroscopeCharacteristicCBUUID, heartRateCharacteristicCBUUID, linearAccelerationCharacteristicCBUUID, gravityCharacteristicCBUUID, lightCharacteristicCBUUID, pressureCharacteristicCBUUID, pedometerCharacteristicCBUUID, hrGreenLightCharacteristicCBUUID, stressCharacteristicCBUUID, locationCharacteristicCBUUID, extControlStartCharacteristicCBUUID, extControlStopCharacteristicCBUUID, extControlDeleteCharacteristicCBUUID, extControlRecordTimeMarkCharacteristicCBUUID, extControlPostHTTPCharacteristicCBUUID] //, locationCharacteristicCBUUID, sleepServiceCBUUID]
 
-let accelerometerServiceID =      "es.ugr.frailty.accelerometer"; // Index 0
-let gyroscopeServiceID =          "es.ugr.frailty.gyroscope"; // Index 1
-let heartRateServiceID =          "es.ugr.frailty.heartrate"; // Index 2
-let linearAccelerationServiceID = "es.ugr.frailty.linearacceleration" // Index 3
-let gravityServiceID =            "es.ugr.frailty.gravity"        // Index 4
-let lightServiceID =              "es.ugr.frailty.light"        // Index 5
-let pressureServiceID =           "es.ugr.frailty.pressure"      // Index 6
-let pedometerServiceID =          "es.ugr.frailty.pedometer"      // Index 7
-let hrGreenLightServiceID =       "es.ugr.frailty.hrgreenlight"    // Index 8
-let stressServiceID =             "es.ugr.frailty.stress"        // Index 9
-let locationServiceID =           "es.ugr.frailty.location"      // Index 10
-let sleepServiceID =              "es.ugr.frailty.sleep"        // Index 11
+let accelerometerServiceID =      "es.ugr.tizensor.accelerometer"; // Index 0
+let gyroscopeServiceID =          "es.ugr.tizensor.gyroscope"; // Index 1
+let heartRateServiceID =          "es.ugr.tizensor.heartrate"; // Index 2
+let linearAccelerationServiceID = "es.ugr.tizensor.linearacceleration" // Index 3
+let gravityServiceID =            "es.ugr.tizensor.gravity"        // Index 4
+let lightServiceID =              "es.ugr.tizensor.light"        // Index 5
+let pressureServiceID =           "es.ugr.tizensor.pressure"      // Index 6
+let pedometerServiceID =          "es.ugr.tizensor.pedometer"      // Index 7
+let hrGreenLightServiceID =       "es.ugr.tizensor.hrgreenlight"    // Index 8
+let stressServiceID =             "es.ugr.tizensor.stress"        // Index 9
+let locationServiceID =           "es.ugr.tizensor.location"      // Index 10
+let sleepServiceID =              "es.ugr.tizensor.sleep"        // Index 11
 
-let timemarkID =                  "es.ugr.frailty.timemark"
+let timemarkID =                  "es.ugr.tizensor.timemark"
 
 class ViewController: UIViewController {
 
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
   var localService:CBService? = nil
   var localPeripheral:CBPeripheral? = nil
   var createdService:CBService? = nil
-  var peripheralDiscoverableName = "Frailty" //The name of perfipheral name
+  var peripheralDiscoverableName = "TIZENSOR" //The name of perfipheral name
   var timeMarkCounter = 0
   var powerOn = false
   // timer used to retry to scan for peripheral, when we don't find it
@@ -161,34 +161,16 @@ class ViewController: UIViewController {
   @IBOutlet weak var generalStateLabel: UILabel!
   @IBOutlet weak var btnStart: UIButton!
   @IBOutlet weak var btnStop: UIButton!
-  @IBOutlet weak var btnConnect: UIButton!
     @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var stressLabel: UILabel!
   
   @IBOutlet weak var btnMarcaTiempo: UIButton!
   @IBOutlet weak var btnSendDataToServer: UIButton!
-  @IBOutlet weak var btnDisconnect: UIButton!
-  
   @IBAction func btnSendDataToServer(_ sender: UIButton) {
     changeCharacteriscticValue(value: extControlHTTPPOST)
-//    writeCharacteristicValue(uuid: extControlStartCharacteristicCBUUID, value: extControlHTTPPOST)
   }
   
-  @IBOutlet weak var btnInit: UIButton!
-  @IBAction func btnInit(_ sender: UIButton) {
-//    generalStateLabel.text = "Sensores activados"
-//
-//    //avisar al watch que empiece a recopilar datos
-//    writeCharacteristicValue(uuid: extControlStartCharacteristicCBUUID, value: extControlStart)
-//
-//    btnInit.isHidden = true
-//    btnDisconnect.isHidden = false
-//    btnConnect.isHidden = true
-//    btnStart.isHidden = false
-//    btnStop.isHidden = true
-//    btnDelete.isHidden = false
-//    btnDeleteWatchData.isHidden = true
-  }
+  
   @IBAction func btnRefresh(_ sender: UIBarButtonItem) {
     changeCharacteriscticValue(value: extControlIsConnected)
   }
@@ -197,21 +179,6 @@ class ViewController: UIViewController {
     deleteAllFiles()
     resetLabelsValues()
   }
-  @IBAction func btnConnect(_ sender: UIButton) {
-//    if(centralManager.state == .poweredOn){
-//      lbState.text = "Conectando..."
-//
-//      startScanning(timeout: 5)
-//    }
-    changeCharacteriscticValue(value: extControlStart)
-  }
-  
-  @IBAction func btnDisconnect(_ sender: UIButton) {
-//    lbState.text = "Desconectando..."
-//    disconnectFromPeripheral(peripheral: self.activePeripheral!)
-//    writeCharacteristicValue(uuid: extControlStartCharacteristicCBUUID, value: extControlStop)
-  }
-  
   
   
   @IBAction func btnStart(_ sender: UIButton) {

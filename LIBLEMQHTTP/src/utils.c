@@ -20,6 +20,19 @@ void upate_stop_requested_from_remote_device(bool received){
 }
 
 
+void handle_app_control_for_sensor_services(char* rightCallerID, app_control_h app_control, char* serviceID){
+    type_app_control_e type = handle_app_control_not_save_data(rightCallerID, app_control, sd);
+    switch (type) {
+        case LAUNCH:
+            dlog_print(DLOG_INFO, LOG_TAG, "lauched %s", rightCallerID);
+            break;
+        case STOP:
+            dlog_print(DLOG_INFO, LOG_TAG, "stoped %s", rightCallerID);
+            break;
+        case SPECIFIC:
+            break;
+    }
+}
 
 type_app_control_e handle_app_control_not_save_data(char* rightCallerID, app_control_h app_control, char* serviceID){
 	return handle_app_control(rightCallerID, app_control, serviceID, false);
@@ -34,8 +47,8 @@ type_app_control_e handle_app_control(char* rightCallerID, app_control_h app_con
 	char *caller_id = NULL, *action_value = NULL;
 	int r = app_control_get_caller(app_control, &caller_id);
 
-	//Comprobamos que quien envía el mensaje es el servicio correcto
-	//admitimos ANY_SERVICE_ID si puede enviarlo cualquiera
+	//Check the sender is the correct
+	//if ANY_SERVICE_ID no worries
 	if (rightCallerID == ANY_SERVICE_ID || (r == APP_CONTROL_ERROR_NONE
 			&& (caller_id != NULL) && (!strncmp(caller_id, rightCallerID, STRNCMP_LIMIT)))){
 
@@ -106,17 +119,6 @@ type_app_control_e handle_app_control(char* rightCallerID, app_control_h app_con
 
 	return type_app;
 }
-
-//Eina_Bool save_local_data_cb(void* data){
-//	sensordata_s* sd = (sensordata_s*) data;
-//	if(sd->dataCaptured != "" && sd->dataCaptured != NULL){
-//		dlog_print(DLOG_INFO, LOG_TAG, "enviando peticion de save datos local for %s; data: %s", sd->serviceID, sd->dataCaptured);
-//		send_message_to_service_with_data(SERVICE_MANAGER_ID, sd->serviceTAG, sd->serviceID, sd->dataCaptured);
-//		sd->dataCaptured = "";
-//	}
-//	return ECORE_CALLBACK_CANCEL; //ECORE_CALLBACK_RENEW;
-//}
-
 
 void send_message_to_service_with_data(char* toServiceID, char* serviceTAG, char* message, char* data)
 {
@@ -275,7 +277,7 @@ char* get_local_data_message_to_handler(char* serviceID){
 	char* r = SEND_LOCAL_DATA_ACCELEROMETER;
 
 	if(serviceID == GYROSCOPE_SERVICE_ID) 					r = SEND_LOCAL_DATA_GYROSCOPE;
-	else if(serviceID == HEART_RATE_SERVICE_ID) 				r = SEND_LOCAL_DATA_HEART_RATE;
+	else if(serviceID == HEART_RATE_SERVICE_ID) 			r = SEND_LOCAL_DATA_HEART_RATE;
 	else if(serviceID == LOCATION_SERVICE_ID) 				r = SEND_LOCAL_DATA_LOCATION;
 	else if(serviceID == PEDOMETER_SERVICE_ID) 				r = SEND_LOCAL_DATA_PEDOMETER;
 	else if(serviceID == LINEAR_ACCELERATION_SERVICE_ID) 	r = SEND_LOCAL_DATA_LIN_ACC;

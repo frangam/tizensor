@@ -62,7 +62,7 @@ int get_alive_delay(char* serviceID){
 
 	if(serviceID == ACCELEROMETER_SERVICE_ID) 				r = ACCELEROMETER_ALIVE_DELAY;
 	else if(serviceID == GYROSCOPE_SERVICE_ID) 				r = GYROSCOPE_ALIVE_DELAY;
-	else if(serviceID == HEART_RATE_SERVICE_ID) 				r = HEART_RATE_ALIVE_DELAY;
+	else if(serviceID == HEART_RATE_SERVICE_ID) 			r = HEART_RATE_ALIVE_DELAY;
 	else if(serviceID == LOCATION_SERVICE_ID) 				r = LOCATION_ALIVE_DELAY;
 	else if(serviceID == PEDOMETER_SERVICE_ID) 				r = PEDOMETER_ALIVE_DELAY;
 	else if(serviceID == LINEAR_ACCELERATION_SERVICE_ID) 	r = LINEAR_ACCELERATION_ALIVE_DELAY;
@@ -79,7 +79,7 @@ int get_sleep_delay(char* serviceID){
 
 	if(serviceID == ACCELEROMETER_SERVICE_ID) 				r = ACCELEROMETER_SLEEP_DELAY;
 	else if(serviceID == GYROSCOPE_SERVICE_ID) 				r = GYROSCOPE_SLEEP_DELAY;
-	else if(serviceID == HEART_RATE_SERVICE_ID) 				r = HEART_RATE_SLEEP_DELAY;
+	else if(serviceID == HEART_RATE_SERVICE_ID) 			r = HEART_RATE_SLEEP_DELAY;
 	else if(serviceID == LOCATION_SERVICE_ID) 				r = LOCATION_SLEEP_DELAY;
 	else if(serviceID == PEDOMETER_SERVICE_ID) 				r = PEDOMETER_SLEEP_DELAY;
 	else if(serviceID == LINEAR_ACCELERATION_SERVICE_ID) 	r = LINEAR_ACCELERATION_SLEEP_DELAY;
@@ -175,15 +175,11 @@ void launch_service(char* service_id)
 	send_message_to_service_with_data(service_id, LOG_TAG, SERVICE_ACTION, LAUNCH_ACTION);
 }
 
-
-
 void stop_service(char* service_id)
 {
 	dlog_print(DLOG_INFO, LOG_TAG, "stop service %s", service_id);
 	send_message_to_service_with_data(service_id, LOG_TAG, SERVICE_ACTION, STOP_ACTION);
 }
-
-
 
 void launch_all_sensors_and_timers(){
 	dlog_print(DLOG_INFO, LOG_TAG, "launch all sensors and timers");
@@ -203,48 +199,6 @@ EAPI Ecore_Timer * launch_sensor_and_timer(char* serviceID){
 }
 
 
-void stop_all_sensors_and_timers(){
-	dlog_print(DLOG_INFO, LOG_TAG, "stop all sensors and timers");
-//	//stop_only_sensors_services();
-//	int i;
-//	for(i=0; i<sizeof sensor_timers / sizeof *sensor_timers; i++){
-//		//ecore_timer_freeze(sensor_timers[i]);
-//		//if(sensor_timers[i] != NULL){
-//			ecore_timer_del(sensor_timers[i]);
-//			sensor_timers[i] = NULL;
-//			sensors_stopped[i] = true;
-//			dlog_print(DLOG_INFO, LOG_TAG, "deleting dead timer %d", i);
-//		//}
-//	}
-	stop_only_sensors_services();
-}
-
-
-void stop_all_alive_services(){
-	dlog_print(DLOG_INFO, LOG_TAG, "stop all alive services");
-	stop_service(RECORDER_SERVICE_ID);
-	stop_service(HTTPPOSTREQ_SERVICE_ID);
-	stop_service(BLUETOOTH_TRANSFER_SERVICE_ID);
-	stop_only_sensors_services();
-}
-
-
-void stop_only_sensors_services(){
-	dlog_print(DLOG_INFO, LOG_TAG, "stop only sensors");
-	int i;
-	for(i=0; i<NUM_SENSORS; i++){
-//		dlog_print(DLOG_INFO, LOG_TAG, "stop only sensors: %d", sizeof sensors / sizeof *sensors);
-
-
-//		sensors[i]->stop_requested = true;
-//		dlog_print(DLOG_INFO, LOG_TAG, "stop only sensors: %s", sensors[i].serviceID);
-//		stop_sensor(&sensors[i]);
-		stop_service(get_service_id_by_index(i));
-	}
-}
-
-
-
 //Lógica de envío de mensajes entres los servicios y este controlador general
 //y la APP gráfica y éste controlador
 void service_app_control(app_control_h app_control, void *data)
@@ -252,13 +206,8 @@ void service_app_control(app_control_h app_control, void *data)
 	char *action_value = NULL;
 	sensordata_s* sd = (sensordata_s*)data;
 
-
 	dlog_print(DLOG_INFO, LOG_TAG, "service_app_control %s", SERVICE_MANAGER_ID);
-
-
 	type_app_control_e type = handle_app_control_not_save_data(ANY_SERVICE_ID, app_control, sd);
-
-
 
 	switch (type) {
 		case LAUNCH:
@@ -266,26 +215,29 @@ void service_app_control(app_control_h app_control, void *data)
 //			launch_service(HTTPPOSTREQ_SERVICE_ID);
 //			launch_service(RECORDER_SERVICE_ID);
 //			launch_service(BLUETOOTH_TRANSFER_SERVICE_ID);
-			launch_all_sensors_and_timers();
-
-//			//iniciamos timer para comprobar conexion a internet para enviar datos de las capturas realizadas
+            
+            /* Launch services via internal message passing, commonly received from BluetoothTransfer service*/
+            if(launch_specific_services(app_control)){
+            }
+            else{
+                /* Launch services via internal message passing, commonly received from UI buttons—APPLauncher app—*/
+                launch_all_sensors_and_timers();
+            }
 //			check_internet_time = ecore_timer_add(CHECK_INTERNET_TIMER, check_internet_timer, NULL);
 			break;
 		case STOP:
-//			stop_all_alive_services();
-			//stop_only_sensors_services();
-			stop_all_sensors_and_timers();
+            stop_sensors()
 			break;
 		case SPECIFIC:
 			if(app_control_get_extra_data(app_control, SERVICE_ACTION, &action_value) == APP_CONTROL_ERROR_NONE
 					&& !strncmp(action_value, STOP_ONLY_SENSORS_ACTION, STRNCMP_LIMIT)){
-				stop_all_sensors_and_timers();
+                stop_sensors();
 			}
-//			// Guardar en local los datos algun sensor
+//			// Local storage
 //			else if(save_local_data_any_sensor_data_captured(app_control)){
 //				dlog_print(DLOG_INFO, LOG_TAG, "requesting to %s to save local data", RECORDER_SERVICE_ID);
 //			}
-			//eliminar los datos de algun sensor concreto
+			//delete data of specific sensor
 			else if(delete_local_data_of_any_sensor(app_control)){
 				dlog_print(DLOG_INFO, LOG_TAG, "delete eliminar datos locales de algun sensor realizado");
 			}
@@ -304,13 +256,20 @@ void service_app_control(app_control_h app_control, void *data)
 //					sensors_stopped[serviceIndex] = true;
 //			}
 
-			//eliminar todos los datos
+			//DELETE local & close APP data
 			else if (app_control_get_extra_data(app_control, DELETE_LOCAL_DATA, &action_value) == APP_CONTROL_ERROR_NONE
 					&& !strncmp(action_value, DELETE_DATA_AND_CLOSE, STRNCMP_LIMIT)){
 				dlog_print(DLOG_INFO, LOG_TAG, "delete all data and close app");
 //				stop_all_sensors_and_timers();
 				send_message_to_service_with_data(RECORDER_SERVICE_ID, LOG_TAG, DELETE_LOCAL_DATA, DELETE_DATA_AND_CLOSE);
 			}
+            //DELETE local & do not close APP data
+            else if (app_control_get_extra_data(app_control, DELETE_LOCAL_DATA, &action_value) == APP_CONTROL_ERROR_NONE
+                    && !strncmp(action_value, DELETE_LOCAL_DATA, STRNCMP_LIMIT)){
+                dlog_print(DLOG_INFO, LOG_TAG, "delete all data and do not close app");
+//                stop_all_sensors_and_timers();
+                send_message_to_service_with_data(RECORDER_SERVICE_ID, LOG_TAG, DELETE_LOCAL_DATA, DELETE_DATA_AND_CLOSE);
+            }
 			//detener este servicio despues de eliminar los datos
 			else if(app_control_get_extra_data(app_control, SERVICE_ACTION, &action_value) == APP_CONTROL_ERROR_NONE
 					&& !strncmp(action_value, ALL_LOCAL_DATA_DELETED, STRNCMP_LIMIT)){
@@ -366,6 +325,20 @@ void service_app_control(app_control_h app_control, void *data)
 			break;
 	}
 }
+bool launch_specific_services(app_control_h app_control){
+    bool r = false;
+    char* action_value = NULL;
+    char* serviceID = "";
+    char* messageKey = SERVICE_MANAGER_ID;
+    r = app_control_get_extra_data(app_control, messageKey, &action_value) == APP_CONTROL_ERROR_NONE
+            && action_value != NULL && action_value != "";
+    if(r){
+        int value_int = atoi(action_value);
+        dlog_print(DLOG_INFO, LOG_TAG, "launching sensors specified as int %d - must to convert to my_sensor_types_e", value_int);
+        launch_sensors((my_sensor_types_e) value_int);
+    }
+    return r;
+}
 
 bool send_local_data_of_any_sensor_to_server(app_control_h app_control){
 	bool r = false;
@@ -403,7 +376,7 @@ bool delete_local_data_of_any_sensor(app_control_h app_control){
 				&& action_value != NULL && !strncmp(action_value, serviceID, STRNCMP_LIMIT);
 		if(r){
 			dlog_print(DLOG_INFO, LOG_TAG, "delete local data for %s", serviceID);
-			send_message_to_service_with_data(RECORDER_SERVICE_ID, LOG_TAG, DELETE_LOCAL_DATA, serviceID);
+			send_message_to_serveice_with_data(RECORDER_SERVICE_ID, LOG_TAG, DELETE_LOCAL_DATA, serviceID);
 			break;
 		}
 	}

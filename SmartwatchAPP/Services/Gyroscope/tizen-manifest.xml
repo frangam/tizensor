@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="es.ugr.frailty.gyroscope" version="1.0.0">
+<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="es.ugr.tizensor.gyroscope" version="1.0.0">
     <profile name="wearable" />
-    <service-application appid="es.ugr.frailty.gyroscope" exec="gyroscope" type="capp" multiple="false" taskmanage="false" nodisplay="true">
+    <service-application appid="es.ugr.tizensor.gyroscope" exec="gyroscope" type="capp" multiple="false" taskmanage="false" nodisplay="true">
         <icon>gyroscope.png</icon>
         <label>gyroscope</label>
 	</service-application>

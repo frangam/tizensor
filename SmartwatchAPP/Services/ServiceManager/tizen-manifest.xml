@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="es.ugr.frailty.servicemanager" version="1.0.0">
+<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="es.ugr.tizensor.servicemanager" version="1.0.0">
     <profile name="wearable"/>
-    <service-application appid="es.ugr.frailty.servicemanager" exec="servicemanager" multiple="false" nodisplay="true" taskmanage="false" type="capp">
+    <service-application appid="es.ugr.tizensor.servicemanager" exec="servicemanager" multiple="false" nodisplay="true" taskmanage="false" type="capp">
         <label>servicemanager</label>
         <icon>servicemanager.png</icon>
     </service-application>

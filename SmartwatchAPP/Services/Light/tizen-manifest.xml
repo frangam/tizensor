@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="es.ugr.frailty.light" version="1.0.0">
+<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="es.ugr.tizensor.light" version="1.0.0">
     <profile name="wearable" />
-    <service-application appid="es.ugr.frailty.light" exec="light" type="capp" multiple="false" taskmanage="false" nodisplay="true">
+    <service-application appid="es.ugr.tizensor.light" exec="light" type="capp" multiple="false" taskmanage="false" nodisplay="true">
         <icon>light.png</icon>
         <label>light</label>
 	</service-application>

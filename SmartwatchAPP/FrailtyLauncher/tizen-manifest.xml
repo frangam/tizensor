@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="es.ugr.frailty.frailtylauncher" version="1.0.0">
+<manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="es.ugr.tizensor.tizensorlauncher" version="1.0.0">
     <profile name="wearable"/>
-    <ui-application appid="es.ugr.frailty.frailtylauncher" exec="frailtylauncher" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+    <ui-application appid="es.ugr.tizensor.tizensorlauncher" exec="frailtylauncher" multiple="false" nodisplay="false" taskmanage="true" type="capp">
         <label>frailtylauncher</label>
         <icon>frailtylauncher.png</icon>
         <metadata key="best_pedometer_history_count" value="0"/>
