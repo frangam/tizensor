@@ -9,9 +9,9 @@ bool service_app_create(void *data)
 	location_manager_h manager;
 	if(location_manager_create(LOCATIONS_METHOD_HYBRID, &manager) == LOCATIONS_ERROR_NONE){
 		sensordata_s* sd = (sensordata_s*)data;
-		sd->serviceID = LOCATION_SERVICE_ID; //guardamos el id del servicio
-		sd->serviceTAG = LOG_TAG; //guardamos el service tag
-		sd->dataCaptured = ""; //inicializamos
+		sd->serviceID = LOCATION_SERVICE_ID;
+		sd->serviceTAG = LOG_TAG;
+		sd->dataCaptured = "";
 		sd->manager = manager;
 		sd->stop_requested = false;
 
@@ -116,18 +116,19 @@ void get_cur_location(sensordata_s* sd){
 	if(ret == LOCATIONS_ERROR_NONE){
 		//obtenemos la fecha y hora (incluyendo milisegundos)
 		char* date_str[30], time_str[30], timstap_str[30];
-		get_current_datetime(&date_str, &time_str, &timstap_str);
-		struct timespec spec;
-		clock_gettime(CLOCK_REALTIME, &spec);
-		unsigned long long current_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
-		clock_gettime(CLOCK_MONOTONIC, &spec);
-		unsigned long long monotonic_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
-		unsigned long long event_time_ms = current_time_ms - monotonic_time_ms + timestamp / 1000LL;
+//		get_current_datetime(&date_str, &time_str, &timstap_str);
+//		struct timespec spec;
+//		clock_gettime(CLOCK_REALTIME, &spec);
+//		unsigned long long current_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
+//		clock_gettime(CLOCK_MONOTONIC, &spec);
+//		unsigned long long monotonic_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
+//		unsigned long long event_time_ms = current_time_ms - monotonic_time_ms + timestamp / 1000LL;
 
 
 
 		char* content[DATA_LINE_SIZE];
-		sprintf ( content, "%llu,%s,%s,%f,%f,%f,%f,%g,%f,%f,%f\n",event_time_ms, date_str, time_str,
+//        sprintf ( content, "%llu,%s,%s,%f,%f,%f,%f,%g,%f,%f,%f\n",event_time_ms, date_str, time_str,
+		sprintf ( content, "%s,%s,%f,%f,%f,%f,%g,%f,%f,%f\n", date_str, time_str,
 						altitude, latitude, longitude, climb, direction, speed, horizontal, vertical);
 		send_message_to_service_with_data(SERVICE_MANAGER_ID,
 												LOG_TAG, LOCATION_SERVICE_ID, content);
@@ -169,7 +170,9 @@ void service_app_terminate(void *data)
 
 void service_app_control(app_control_h app_control, void *data)
 {
-	type_app_control_e type = handle_app_control_and_save_data(SERVICE_MANAGER_ID, app_control, (sensordata_s*)data);
+    handle_app_control_for_sensor_services(LOCATION_SERVICE_ID,
+                                           app_control,
+                                           (sensordata_s*)data);
 }
 
 static void

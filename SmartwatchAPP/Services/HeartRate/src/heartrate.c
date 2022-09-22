@@ -4,7 +4,7 @@
 
 bool service_app_create(void *data)
 {
-	return create_sensor(HEART_RATE_SERVICE_ID, LOG_TAG, (sensordata_s*)data);
+	return true;
 }
 
 void service_app_terminate(void *data)
@@ -14,7 +14,9 @@ void service_app_terminate(void *data)
 
 void service_app_control(app_control_h app_control, void *data)
 {
-	type_app_control_e type = handle_app_control_and_save_data(SERVICE_MANAGER_ID, app_control, (sensordata_s*)data);
+    handle_app_control_for_sensor_services(HEART_RATE_SERVICE_ID,
+                                           app_control,
+                                           (sensordata_s*)data);
 }
 
 static void
