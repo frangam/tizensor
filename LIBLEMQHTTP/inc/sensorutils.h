@@ -92,6 +92,11 @@ extern void terminate_location();
 extern char* get_location_error_message(int error);
 extern char** get_service_ids_contained_in_enum(my_sensor_types_e types, int* counter);
 
+
+// -- Sampling rate
+extern int get_sensor_min_interval(char* serviceID);
+extern float get_frequency_in_hz_from_service_id(char* serviceID);
+
 #ifdef __cplusplus
 }
 #endif

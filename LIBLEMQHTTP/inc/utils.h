@@ -244,8 +244,7 @@ extern bool is_received_stop_request_from_remote_device();
 extern void upate_stop_requested_from_remote_device(bool received);
 
 
-extern int get_sensor_min_interval(char* serviceID);
-extern float get_frequency_in_hz_from_service_id(char* serviceID);
+
 
 #ifdef __cplusplus
 }

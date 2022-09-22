@@ -189,8 +189,6 @@ class ViewController: UIViewController {
       resetLabelsValues()
       newTimeEventLabel.text = "Recording TimeMark of Start Recording"
       generalStateLabel.text = "Recording Data..."
-      //btnStart.isHidden = true
-      //btnStop.isHidden = false
       btnMarcaTiempo.isHidden = false
       lbMarcaTiempo.isHidden = false
       btnDelete.isHidden = true
@@ -198,8 +196,14 @@ class ViewController: UIViewController {
       btnSendDataToServer.isHidden = true
       
       changeCharacteriscticValue(value: String(ServiceTypes.allSensors.rawValue))
-//      changeCharacteriscticValue(value: extControlRecordTimeMark)
+      
+//      let desiredSensors:ServiceTypes = [.accelerometer, .gyroscope]
+//      changeCharacteriscticValue(value: String(desiredSensors.rawValue))
+
     }
+    
+    
+    
     
     //Central Approach
 //    if(centralManager.state == .poweredOn){

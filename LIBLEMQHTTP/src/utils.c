@@ -366,25 +366,4 @@ char* substr(char* str, int start, int len){
 }
 
 
-int get_sensor_min_interval(char* serviceID){
-	int r = GENERAL_SENSORS_MS_INTERVAL;
 
-	if(serviceID == ACCELEROMETER_SERVICE_ID)				r = GENERAL_SENSORS_MS_INTERVAL;
-	else if (serviceID == GYROSCOPE_SERVICE_ID) 				r = GENERAL_SENSORS_MS_INTERVAL;
-	else if(serviceID == HEART_RATE_SERVICE_ID) 				r = HR_MS_INTERVAL;
-	else if(serviceID == LINEAR_ACCELERATION_SERVICE_ID) 	r = GENERAL_SENSORS_MS_INTERVAL;
-	else if(serviceID == GRAVITY_SERVICE_ID) 				r = GENERAL_SENSORS_MS_INTERVAL;
-	else if(serviceID == LIGHT_SERVICE_ID) 					r = HIGH_SENSORS_MS_INTERVAL;
-	else if(serviceID == PRESSURE_SERVICE_ID) 				r = HIGH_SENSORS_MS_INTERVAL;
-	else if(serviceID == PEDOMETER_SERVICE_ID) 				r = PEDOMETER_MS_INTERVAL;
-	else if(serviceID == HR_GREEN_LIGHT_SERVICE_ID) 			r = HR_MS_INTERVAL;
-	else if(serviceID == STRESS_SERVICE_ID) 					r = STRESS_MS_INTERVAL;
-	else if(serviceID == LOCATION_SERVICE_ID) 				r = LOCATION_MS_INTERVAL;
-	else if(serviceID == SLEEP_SERVICE_ID) 					r = SLEEP_MS_INTERVAL;
-
-	return r;
-}
-
-float get_frequency_in_hz_from_service_id(char* serviceID){
-	return (1.0/get_sensor_min_interval(serviceID)) * 1000;
-}
