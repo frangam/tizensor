@@ -232,15 +232,15 @@ char* get_sensor_data(sensordata_s* sd, sensor_event_s *event){
 	else{
 		//obtenemos la fecha y hora (incluyendo milisegundos)
 		char* date_str[30], time_str[30], timestamp_str[30];
-		struct timespec spec;
-		clock_gettime(CLOCK_REALTIME, &spec);
-		unsigned long long current_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
-		clock_gettime(CLOCK_MONOTONIC, &spec);
-		unsigned long long monotonic_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
-		unsigned long long event_time_ms = current_time_ms - monotonic_time_ms + event->timestamp / 1000LL;
+//		struct timespec spec;
+//		clock_gettime(CLOCK_REALTIME, &spec);
+//		unsigned long long current_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
+//		clock_gettime(CLOCK_MONOTONIC, &spec);
+//		unsigned long long monotonic_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
+//		unsigned long long event_time_ms = current_time_ms - monotonic_time_ms + event->timestamp / 1000LL;
 		get_current_datetime(&date_str, &time_str, &timestamp_str);
 
-		//cambiar los float con punto (.) para decimales
+		//set float dot (.) for decimals
 		setlocale(LC_NUMERIC, "en_US.UTF-8");
 
 		//dlog_print(DLOG_INFO, sd->serviceTAG, "capturing data from %s", sd->serviceID);
@@ -249,20 +249,26 @@ char* get_sensor_data(sensordata_s* sd, sensor_event_s *event){
 				){
 	//			sprintf ( content, "%s,%s,%s,%f,%f,%f\n",get_device_id(), date_str, time_str,
 	//				event->values[0], event->values[1], event->values[2]);
-			sprintf ( content, "%llu,%s,%s,%f,%f,%f,%d\n",event_time_ms,date_str, time_str,
+//			sprintf ( content, "%llu,%s,%s,%f,%f,%f,%d\n",event_time_ms,date_str, time_str,
+            sprintf ( content, "%s,%s,%f,%f,%f,%d\n",date_str, time_str,
+
 							event->values[0], event->values[1], event->values[2], current_time_mark_counter);
 					}
 	//		}
 		else if(sd->serviceID == HEART_RATE_SERVICE_ID ||  sd->serviceID == HR_GREEN_LIGHT_SERVICE_ID){
 			if((int) event->values[0] > 0){
-				sprintf ( content, "%llu,%s,%s,%d,%d\n",event_time_ms, date_str, time_str, (int) event->values[0], current_time_mark_counter);
+//				sprintf ( content, "%llu,%s,%s,%d,%d\n",event_time_ms, date_str, time_str, (int) event->values[0], current_time_mark_counter);
+                sprintf ( content, "%s,%s,%d,%d\n", date_str, time_str, (int) event->values[0], current_time_mark_counter);
+
 			}
 			else{
 				sprintf ( content, "");
 			}
 		}
 		else if(sd->serviceID == PRESSURE_SERVICE_ID || sd->serviceID == LIGHT_SERVICE_ID || sd->serviceID == STRESS_SERVICE_ID){
-			sprintf ( content, "%llu,%s,%s,%f,%d\n",event_time_ms,date_str, time_str, event->values[0], current_time_mark_counter);
+//			sprintf ( content, "%llu,%s,%s,%f,%d\n",event_time_ms,date_str, time_str, event->values[0], current_time_mark_counter);
+            sprintf ( content, "%s,%s,%f,%d\n",date_str, time_str, event->values[0], current_time_mark_counter);
+
 		}
 		else if(sd->serviceID == PEDOMETER_SERVICE_ID){
 			dlog_print(DLOG_INFO, sd->serviceTAG, "%s: trying to get right values", sd->serviceID);
@@ -273,7 +279,9 @@ char* get_sensor_data(sensordata_s* sd, sensor_event_s *event){
 			// 3: moving distance (meters); 4: calories burned (kcal); 5: last speed (Km/h);
 			// 6: last stepping frequency (steps/second);
 			// 7: last pedestrian state >> SENSOR_PEDOMETER_STATE_UNKNOWN, SENSOR_PEDOMETER_STATE_STOP, SENSOR_PEDOMETER_STATE_WALK, or SENSOR_PEDOMETER_STATE_RUN
-			sprintf ( content, "%llu,%s,%s,%d,%d,%d,%d,%d,%d,%d,%d\n",event_time_ms, date_str, time_str, (int) event->values[0],
+//			sprintf ( content, "%llu,%s,%s,%d,%d,%d,%d,%d,%d,%d,%d\n",event_time_ms, date_str, time_str, (int) event->values[0],
+            sprintf ( content, "%s,%s,%d,%d,%d,%d,%d,%d,%d,%d\n", date_str, time_str, (int) event->values[0],
+
 					(int) event->values[1], (int) event->values[2], (int) event->values[3], (int) event->values[4],
 					(int) event->values[5], (int) event->values[6], current_time_mark_counter);
 		}
@@ -475,13 +483,14 @@ char* get_cur_location(sensordata_s* sd){
 		//obtenemos la fecha y hora (incluyendo milisegundos)
 		char* date_str[30], time_str[30], timstap_str[30];
 		get_current_datetime(&date_str, &time_str, &timstap_str);
-		struct timespec spec;
-		clock_gettime(CLOCK_REALTIME, &spec);
-		unsigned long long current_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
-		clock_gettime(CLOCK_MONOTONIC, &spec);
-		unsigned long long monotonic_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
-		unsigned long long event_time_ms = current_time_ms - monotonic_time_ms + timestamp / 1000LL;
-		sprintf ( content, "%llu,%s,%s,%f,%f,%f,%f,%g,%f,%f,%f\n",event_time_ms, date_str, time_str,
+//		struct timespec spec;
+//		clock_gettime(CLOCK_REALTIME, &spec);
+//		unsigned long long current_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
+//		clock_gettime(CLOCK_MONOTONIC, &spec);
+//		unsigned long long monotonic_time_ms = spec.tv_sec * 1000LL + spec.tv_nsec / 1000000LL;
+//		unsigned long long event_time_ms = current_time_ms - monotonic_time_ms + timestamp / 1000LL;
+//		sprintf ( content, "%llu,%s,%s,%f,%f,%f,%f,%g,%f,%f,%f\n",event_time_ms, date_str, time_str,
+        sprintf ( content, "%s,%s,%f,%f,%f,%f,%g,%f,%f,%f\n", date_str, time_str,
 						altitude, latitude, longitude, climb, direction, speed, horizontal, vertical);
 //		send_message_to_service_with_data(SERVICE_MANAGER_ID,
 //												LOG_TAG, LOCATION_SERVICE_ID, content);
