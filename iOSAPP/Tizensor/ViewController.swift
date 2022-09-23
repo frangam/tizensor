@@ -355,6 +355,7 @@ class ViewController: UIViewController {
     
   override func viewDidLoad() {
     super.viewDidLoad()
+    resetLabelsValues()
 //    btnInit.isHidden = true
 //    btnDisconnect.isHidden = true
 //    btnConnect.isHidden = false
@@ -542,52 +543,12 @@ class ViewController: UIViewController {
   func getEventName(item: String)-> String{
     var res:String
     print("My Label: " + item)
-    
-    if (item == "1"){
-      res = "1-Sitting"
-    }
-    else if (item == "2"){
-      res = "2-Standing"
-    }
-    else if (item == "3"){
-      res = "3-Walking-to-Supermarket"
-    }
-    else if (item == "4"){
-      res = "4-At-Supermarket-Entrance"
-    }
-    else if (item == "5"){
-      res = "5-Walking-Inside-Supermarket"
-    }
-    else if (item == "6"){
-      res = "6-Picking-Up-a-Producto"
-    }
-    else if (item == "7"){
-      res = "7-Going-To-Checkout"
-    }
-    else if (item == "8"){
-      res = "8-Waiting-for-Turn"
-    }
-    else if (item == "9"){
-      res = "9-In-Its-Turn"
-    }
-    else if (item == "10"){
-      res = "10-Going-To-Exit"
-    }
-    else if (item == "11"){
-      res = "11-At-The-Exit"
-    }
-    else if (item == "12"){
-      res = "12-Comming-Back"
-    }
-    else if (item == "13"){
-      res = "13-Standing-At-The-End"
-    }
-    else if (item == "14"){
-      res = "14-Sitting-The-End"
-    }
-    else{
-      res = item
-    }
+    if (item == "1"){res = "1-Sitting"}
+    else if (item == "2"){res = "2-Standing"}
+    else if (item == "3"){res = "3-Walking"}
+    else if (item == "4"){res = "4-Jogging"}
+    else if (item == "5"){res = "5-Jumping"}
+    else{res = item}
     return res
   }
 }
@@ -604,7 +565,7 @@ extension ViewController: CBPeripheralManagerDelegate {
     else {
       // Bluetooth peripheral is off, sto all services
       print("peripheral is off")
-      self.lbState.text = "Bluetooth Inactivo. Habilitar!!"
+      self.lbState.text = "Bluetooth inactive. Enable!!"
       //      self.powerOn = false
       self.stopServices()
     }
