@@ -3,7 +3,11 @@
 
 iOS App for recording data sent with a Tizen app via bluetooth and for labelling stages
 
+---
+
 (Spanish - NÚMERO DE ASIENTO REGISTRAL 04 / 2022 / 2604)
+
+---
 
 # Snapshots
 
