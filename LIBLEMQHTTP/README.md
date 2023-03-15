@@ -5,7 +5,7 @@ A Tizen library for collecting sensor data from Tizen smartwatches.
 
 --- 
 
-Please, cite this research work:
+Please, cite these research work:
 
 Garcia-Moreno, F.M.; Bermudez-Edo, M.; Garrido, J.L.; Rodríguez-García, E.; Pérez-Mármol, J.M.; Rodríguez-Fórtiz, M.J. A Microservices e-Health System for Ecological Frailty Assessment Using Wearables. Sensors 2020, 20, 3427. https://doi.org/10.3390/s20123427
 
