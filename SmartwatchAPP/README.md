@@ -5,5 +5,10 @@ App for Tizen wearable devices for collecting sensor data from smartwatches with
 
 ---
 
-(Spanish) - NÚMERO DE ASIENTO REGISTRAL 04 / 2022 / 57 <br>
-Título: TIZENSOREC: Sistema software para smartwatch Tizen de recopilacion de datos de sensores y su transferencia via Bluetooth
+(Spanish) 
+- NÚMERO DE ASIENTO REGISTRAL 04 / 2022 / 57 <br>
+- Título: TIZENSOREC: Sistema software para smartwatch Tizen de recopilacion de datos de sensores y su transferencia via Bluetooth
+- Objeto de propiedad intelectual: Programa de ordenador
+- Clase de obra: Programa de ordenador
+
+---
