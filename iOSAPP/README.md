@@ -5,7 +5,11 @@ iOS App for recording data sent with a Tizen app via bluetooth and for labelling
 
 ---
 
-(Spanish - NÚMERO DE ASIENTO REGISTRAL 04 / 2022 / 2604)
+(Spanish)
+- NÚMERO DE ASIENTO REGISTRAL 04 / 2022 / 2604)
+- Título: iSensorec
+- Objeto de propiedad intelectual: Programa de ordenador
+- Clase de obra: Programa de ordenador
 
 ---
 
