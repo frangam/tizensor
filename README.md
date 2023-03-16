@@ -1,7 +1,8 @@
 
 
 # TIZENSOR
-<img src="https://img.shields.io/github/license/frangam/tizensor.svg"> <img src="https://img.shields.io/github/release/frangam/tizensor.svg"/> <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"/> <img src="https://img.shields.io/github/downloads/frangam/tizensor/total.svg"/>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <img src="https://img.shields.io/github/release/frangam/tizensor.svg"/> <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"/> [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/total)](https://github.com/frangam/tizensor/releases) 
+
 
 [![DOI:10.3390/s20123427](http://img.shields.io/badge/DOI-10.3390/s20123427-067c7f.svg)](https://doi.org/10.3390/s20123427)
 [![DOI:10.1016/j.ijmedinf.2021.104625](http://img.shields.io/badge/DOI-10.1016/j.ijmedinf.2021.104625-ff9b47.svg)](https://doi.org/10.1016/j.ijmedinf.2021.104625)
