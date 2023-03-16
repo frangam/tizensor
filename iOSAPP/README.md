@@ -1,5 +1,6 @@
 # iSensoRec
-<img src="https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa"/> 
+[![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa)](https://github.com/frangam/tizensor/releases) 
+
 
 iOS App for recording data sent with a Tizen app via bluetooth and for labelling stages
 
