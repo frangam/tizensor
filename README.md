@@ -6,11 +6,18 @@
 
 
 
-An integral software solution to collect data from devices with Tizen Operating System. This solution consists of thee software parts:
+An integral software solution to collect data from devices with Tizen Operating System. This solution consists of 3 software apps:
 
 - [LIBLEMQHTTP](https://github.com/frangam/tizensor/wiki/LIBLEMQHTTP)
 - [SmartwatchAPP](https://github.com/frangam/tizensor/wiki/SmartwatchAPP)
 - [iOSAPP](https://github.com/frangam/tizensor/wiki/iOSAPP)
+
+<img src="https://github.com/frangam/tizensor/blob/main/doc/SoftwareX.png" width="700">
+
+### Use-case overview
+
+<img src="https://github.com/frangam/tizensor/blob/main/doc/Scenario.png" width="700">
+
 
 ---
 
