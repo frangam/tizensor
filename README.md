@@ -3,6 +3,9 @@
 # TIZENSOR
 <img src="https://img.shields.io/github/license/frangam/tizensor.svg"> <img src="https://img.shields.io/github/release/frangam/tizensor.svg"/> <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"/> <img src="https://img.shields.io/github/downloads/frangam/tizensor/total.svg"/>
 
+[![DOI:10.3390/s20123427](http://img.shields.io/badge/DOI-10.3390/s20123427-067c7f.svg)](https://doi.org/10.3390/s20123427)
+[![DOI:10.1016/j.ijmedinf.2021.104625](http://img.shields.io/badge/DOI-10.1016/j.ijmedinf.2021.104625-ff9b47.svg)](https://doi.org/10.1016/j.ijmedinf.2021.104625)
+
 
 
 
@@ -23,7 +26,12 @@ An integral software solution to collect data from devices with Tizen Operating 
 
 Please, cite these research work:
 
+[![DOI:10.3390/s20123427](http://img.shields.io/badge/DOI-10.3390/s20123427-067c7f.svg)](https://doi.org/10.3390/s20123427)
+
 Garcia-Moreno, F.M.; Bermudez-Edo, M.; Garrido, J.L.; Rodríguez-García, E.; Pérez-Mármol, J.M.; Rodríguez-Fórtiz, M.J. A Microservices e-Health System for Ecological Frailty Assessment Using Wearables. Sensors 2020, 20, 3427. https://doi.org/10.3390/s20123427
+
+
+[![DOI:10.1016/j.ijmedinf.2021.104625](http://img.shields.io/badge/DOI-10.1016/j.ijmedinf.2021.104625-ff9b47.svg)](https://doi.org/10.1016/j.ijmedinf.2021.104625)
 
 Francisco M. Garcia-Moreno, Maria Bermudez-Edo, Estefanía Rodríguez-García, José Manuel Pérez-Mármol, José Luis Garrido, María José Rodríguez-Fórtiz,
 A machine learning approach for semi-automatic assessment of IADL dependence in older adults with wearable sensors,
