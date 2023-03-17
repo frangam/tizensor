@@ -1,6 +1,7 @@
 # TIZENSOR - Smartwatch APP (tpk)
 App for Tizen wearable devices for collecting sensor data from smartwatches with Tizen OS.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745599.svg)](https://doi.org/10.5281/zenodo.7745599)
 [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk)](https://github.com/frangam/tizensor/releases) 
 
 
