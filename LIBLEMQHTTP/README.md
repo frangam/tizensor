@@ -2,11 +2,11 @@
 A Tizen library for collecting sensor data from Tizen smartwatches.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745640.svg)](https://doi.org/10.5281/zenodo.7745640)
-[![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a)](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a) 
+[![GitHub all releases](https://github.com/frangam/tizensor/releases/download/1.0/LIBLEMQHTTP.a)](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a) 
 
 ## Download last release
 Support us downloading our last release
-- Click on this button to download [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a)](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a) 
+- Click on this button to download [![GitHub all releases](https://github.com/frangam/tizensor/releases/download/1.0/LIBLEMQHTTP.a)](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a) 
 - We also appreciate your support downloading it on ZENODO site: 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745640.svg)](https://doi.org/10.5281/zenodo.7745640)
 
