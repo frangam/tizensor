@@ -1,13 +1,13 @@
 # iSensoRec
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745626.svg)](https://doi.org/10.5281/zenodo.7745626)
-[![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa)](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa) 
+[![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa)](https://github.com/frangam/tizensor/releases/download/1.0/iOSAPP.ipa) 
 
 
 iOS App for recording data sent with a Tizen app via bluetooth and for labelling stages
 
 ## Download last release
 Support us downloading our last release
-- Click on this button to download [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa)](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa) 
+- Click on this button to download [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa)](https://github.com/frangam/tizensor/releases/download/1.0/iOSAPP.ipa) 
 - We also appreciate your support downloading it on ZENODO site: 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745626.svg)](https://doi.org/10.5281/zenodo.7745626)
 
