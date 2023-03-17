@@ -12,9 +12,9 @@
 
 An integral software solution to collect data from devices with Tizen Operating System. This solution consists of 3 software apps:
 
-- LIBLEMQHTTP [(Wiki doc)](https://github.com/frangam/tizensor/wiki/LIBLEMQHTTP) [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a)](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a) 
-- SmartwatchAPP [(Wiki doc)](https://github.com/frangam/tizensor/wiki/SmartwatchAPP) [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk)](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk) 
-- iOSAPP [(Wiki doc)](https://github.com/frangam/tizensor/wiki/iOSAPP) [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa)](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa) 
+- LIBLEMQHTTP [(Wiki doc)](https://github.com/frangam/tizensor/wiki/LIBLEMQHTTP) [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a)](https://github.com/frangam/tizensor/releases/download/1.0/LIBLEMQHTTP.a) 
+- SmartwatchAPP [(Wiki doc)](https://github.com/frangam/tizensor/wiki/SmartwatchAPP) [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk)](https://github.com/frangam/tizensor/releases/download/1.0/SmartwatchAPP.tpk) 
+- iOSAPP [(Wiki doc)](https://github.com/frangam/tizensor/wiki/iOSAPP) [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa)](https://github.com/frangam/tizensor/releases/download/1.0/iOSAPP.ipa) 
 
 <img src="https://github.com/frangam/tizensor/blob/main/doc/SoftwareX.png" width="700">
 
@@ -26,13 +26,13 @@ An integral software solution to collect data from devices with Tizen Operating 
 ## Download last release
 Support us downloading our last release of each software
 - LIBLEMQHTTP
-  - Click on this button to download [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a)](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a) 
+  - Click on this button to download [![GitHub all releases](https://github.com/frangam/tizensor/releases/download/1.0/LIBLEMQHTTP.a)](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a) 
   - We also appreciate your support downloading it on ZENODO site: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745640.svg)](https://doi.org/10.5281/zenodo.7745640)
 - SmartwatchAPP
-  - Click on this button to download [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk)](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk) 
+  - Click on this button to download [![GitHub all releases](https://github.com/frangam/tizensor/releases/download/1.0/SmartwatchAPP.tpk)](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk) 
   - We also appreciate your support downloading it on ZENODO site: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745599.svg)](https://doi.org/10.5281/zenodo.7745599)
 - iOSAPP
-  - Click on this button to download [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa)](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa) 
+  - Click on this button to download [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa)](https://github.com/frangam/tizensor/releases/download/1.0/iOSAPP.ipa) 
   - We also appreciate your support downloading it on ZENODO site: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745626.svg)](https://doi.org/10.5281/zenodo.7745626)
 
 
