@@ -1,6 +1,7 @@
 # LIBLEMQHTTP
 A Tizen library for collecting sensor data from Tizen smartwatches.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745640.svg)](https://doi.org/10.5281/zenodo.7745640)
 [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/LIBLEMQHTTP.a)](https://github.com/frangam/tizensor/releases) 
 
 
