@@ -8,7 +8,7 @@
 [![DOI:10.1016/j.ijmedinf.2021.104625](http://img.shields.io/badge/DOI-10.1016/j.ijmedinf.2021.104625-ff9b47.svg)](https://doi.org/10.1016/j.ijmedinf.2021.104625)
 
 
-
+---
 
 An integral software solution to collect data from devices with Tizen Operating System. This solution consists of 3 software apps:
 
