@@ -2,11 +2,11 @@
 App for Tizen wearable devices for collecting sensor data from smartwatches with Tizen OS.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745599.svg)](https://doi.org/10.5281/zenodo.7745599)
-[![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk)](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk) 
+[![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk)](https://github.com/frangam/tizensor/releases/download/1.0/SmartwatchAPP.tpk) 
 
 ## Download last release
 Support us downloading our last release
-- Click on this button to download [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk)](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk) 
+- Click on this button to download [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/SmartwatchAPP.tpk)](https://github.com/frangam/tizensor/releases/download/1.0/SmartwatchAPP.tpk) 
 - We also appreciate your support downloading it on ZENODO site: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745599.svg)](https://doi.org/10.5281/zenodo.7745599)
 
 
