@@ -1,4 +1,5 @@
 # iSensoRec
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7745626.svg)](https://doi.org/10.5281/zenodo.7745626)
 [![GitHub all releases](https://img.shields.io/github/downloads/frangam/tizensor/iOSApp.ipa)](https://github.com/frangam/tizensor/releases) 
 
 
